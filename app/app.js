@@ -5,12 +5,11 @@ const mongoose = require('mongoose');
 app.use(cookieParser);
 app.use(express.json);
 
-mongoose.connect('mongodb://localhost:27017/shopping-hut', {useNewUrlParser : true, useUnifiedTopology: true, useCreateIndex : true}, () => {
+mongoose.connect('mongodb://localhost:27017/shopping-hut', {useNewUrlParser : true, useUnifiedTopology: true}, () => {
     console.log('db connected');
 });
 
-const userRouter = require('./routes/userRoute');
-app.use('/user', userRouter)
+const User = require('./models/userModel');
 
 app.listen(5000, () => {
     console.log('express server started');
