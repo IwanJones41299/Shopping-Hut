@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const cookieParse = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-app.use(cookieParse());
+app.use(cookieParser());
 app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/shoppinghut_DB',{useNewUrlParser : true, useUnifiedTopology: true }, () => {

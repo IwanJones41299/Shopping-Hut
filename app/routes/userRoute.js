@@ -6,8 +6,15 @@ const JWT = require('jsonwebtoken');
 const User = require('../models/userModel');
 const List = require('../models/listModel');
 
-//Register a user route
-userRouter.post('/register', (req, res) => {
+const signtoken = userID => {
+    return JWT.sign({
+        iss : "ShoppingHut",
+        sub : userID
+    },"ShoppingHut",{expiresIn : "1h"});
+}
+
+//Register a user
+userRouter.post('/register', (req,res) => {
     const { name,username,email,password } = req.body;
     User.findOne({name,username,email}, (err, user) => {
         if(err)
@@ -25,5 +32,42 @@ userRouter.post('/register', (req, res) => {
         }
     });
 });
+
+//User login
+userRouter.post('/login',passport.authenticate('local',{session : false}),(req,res) => {
+    if(req.isAuthenticated()){
+        const {_id,username,email} = req.user;
+        const token = signtoken(_id);
+        res.cookie('access_token',token,{httpOnly: true, sameSite: true});
+        res.status(200).json({isAuthenticated : true,user : {username,email}});
+    }
+});
+
+//Users logout
+userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res) => {
+    res.clearCookie('access_token');
+    res.json({user:{username : ""},sucess :true});
+});
+
+//Shopping list
+userRouter.post('/list',passport.authenticate('jwt',{session : false}),(req,res)=>{
+    const list = new List(req.body);
+    list.save(err=>{
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.shoppingList.push(list);
+            req.user.save(err=>{
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody : "Successfully added a product to your shoping list", msgError : false}});
+            });
+        }
+    })
+});
+
+//Retrieve users shopping list
+
 
 module.exports = userRouter;
