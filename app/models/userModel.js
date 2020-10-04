@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
         required : true,
         min : 8
     },
-    shoppingList : [{type : mongoose.Schema.Types.ObjectId, ref : 'shoppinglist'}]
+    lists : [{type : mongoose.Schema.Types.ObjectId, ref : 'List'}]
 });
 
 UserSchema.pre('save', function(next){

@@ -36,10 +36,10 @@ userRouter.post('/register', (req,res) => {
 //User login
 userRouter.post('/login',passport.authenticate('local',{session : false}),(req,res) => {
     if(req.isAuthenticated()){
-        const {_id,username,email} = req.user;
+        const {_id,name,username} = req.user;
         const token = signtoken(_id);
         res.cookie('access_token',token,{httpOnly: true, sameSite: true});
-        res.status(200).json({isAuthenticated : true,user : {username,email}});
+        res.status(200).json({isAuthenticated : true,user : {name,username}});
     }
 });
 
@@ -56,7 +56,7 @@ userRouter.post('/list',passport.authenticate('jwt',{session : false}),(req,res)
         if(err)
             res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
         else{
-            req.user.shoppingList.push(list);
+            req.user.lists.push(list);
             req.user.save(err=>{
                 if(err)
                     res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
@@ -67,7 +67,20 @@ userRouter.post('/list',passport.authenticate('jwt',{session : false}),(req,res)
     })
 });
 
-//Retrieve users shopping list
+//Retrieve users shopping list --- (Error here!!!)
+userRouter.get('/lists',passport.authenticate('jwt',{session : false}),(req,res)=>{
+    User.findById({_id : req.user._id}).populate('lists').exec((err,document)=>{
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            res.status(200).json({lists : document.lists, authenticated : true});
+        }
+    });
+});
 
+userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}),(req,res)=>{
+    const {name,username} = req.user;
+    res.status(200).json({isAuthenticated : true, user : {name,username}});
+})
 
 module.exports = userRouter;
