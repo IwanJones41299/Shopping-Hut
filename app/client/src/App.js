@@ -1,12 +1,16 @@
-import React,{useContext} from 'react';
-import {  AuthContext } from './Context/AuthContext';
+import React from 'react';
+import Navbar from './Components/navbar';
+import Home from './Components/home';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.scss';
 
 function App() {
-  const{  user,setUser,isAuthenticated,setIsAuthenticated } = useContext(AuthContext);
-  console.log(user);
-  console.log(isAuthenticated);
   return (
-      <p>Placeholder</p>
+      <Router>
+        <Navbar />
+        <Route exact path="/" component={Home}/>
+      </Router>
   );
 }
 

@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+.nav_Title{
+    color: $logo;
+}
+
+.navbar{
+    background-color: #1A1C1C !important;
+    border: none;
+    outline: none;
+}
+.nav_Title{
+    color: $logo;
+    margin-left: 10%;
+    margin-top: 8%;
+}
+
+.container-fluid{
+    padding: 30px;
+}
+
+.home_page{
+    margin-top: 10%;
+}
+
+.welcome_title, .welcome_subtitle{
+    text-align: center;
+    color: $primary;
+}
+
+.welcome_title{
+    margin-top: 50%;
+}
+
+.btn-login, .btn-reg{
+    margin-left: 2%;
+    margin-bottom: 2%;
+    width: 50%;
+}

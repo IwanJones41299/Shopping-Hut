@@ -4,5 +4,5 @@ import App from "./App";
 import AuthProvider from './Context/AuthContext';
 
 ReactDOM.render(
-  <AuthProvider><App /></AuthProvider>,document.getElementById("root")
+    <AuthProvider><App /></AuthProvider>,document.getElementById("root")
 );
