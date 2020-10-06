@@ -5,7 +5,7 @@
 }
 
 .navbar{
-    background-color: #1A1C1C !important;
+    background-color: $primary !important;
     border: none;
     outline: none;
 }
@@ -15,12 +15,39 @@
     margin-top: 8%;
 }
 
-.container-fluid{
-    padding: 30px;
+.nav-link{
+    color: white !important;
+    margin-right: 2vh;
 }
 
-.home_page{
-    margin-top: 10%;
+.nav-link:hover,:link,:visited,:focus{
+    color: $logo !important;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+.container-fluid{
+    padding: 30px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home_top {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.home_middle{
+    background-color: $primary;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.home_bottom{
+    margin-top: 5%;;
 }
 
 .welcome_title, .welcome_subtitle{
@@ -28,12 +55,70 @@
     color: $primary;
 }
 
-.welcome_title{
-    margin-top: 50%;
+.btn-login, .btn-reg{
+    margin-bottom: 2%;
+    margin-left: 2%;
+    width: 30%;
+    background-color: $logo;
+    border: 2px solid;
+    color: white;
 }
 
-.btn-login, .btn-reg{
-    margin-left: 2%;
-    margin-bottom: 2%;
-    width: 50%;
+.btn-login:hover, .btn-reg:hover{
+    background-color: white;
+    color: $logo;
+    border: 2px solid $logo;
+    transition: 0.5s;
 }
+
+.btn-login:focus, .btn-reg:focus{
+    background-color: white;
+    color: $logo;
+    border: 2px solid $logo !important;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.bottom_title{
+    margin-bottom: 8%;
+    color: $primary;
+}
+
+.features_card{
+    margin-bottom: 10%;
+}
+
+.feature_logo{
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2%;
+    //Edit the colour of the logo's in adobe xd!
+}
+
+.feature_title{
+    color: $logo;
+}
+
+.download-btn{
+    background-color: $logo;
+    color: white !important;
+}
+
+.download-btn:hover{
+    background-color: white;
+    color: $logo !important;
+    border: 2px solid $logo;
+    transition: 0.5s;
+}
+
+footer{
+    background-color: $primary;
+    color: white;
+}
+
+.copyright-text{
+    color: $logo !important;
+}
+//Media Queries

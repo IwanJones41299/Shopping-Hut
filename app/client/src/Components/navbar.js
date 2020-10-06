@@ -47,7 +47,7 @@ const Navbar = (props) => {
         </div>
       </Link>
         <div className="justify-content-end">
-            <ul className="navbar-nav mr-auto inline">
+            <ul className="navbar-nav mr-auto">
             {!isAuthenticated ? unauthenticatedNavbar() : authenticatedNavbar()}
           </ul>
         </div>
