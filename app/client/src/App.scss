@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+body{
+    background-color: $primary;
+}
+
 .nav_Title{
     color: $logo;
 }
@@ -36,6 +40,7 @@
 .home_top {
     margin-top: 5%;
     margin-bottom: 5%;
+    background-color: white;
 }
 
 .home_middle{
@@ -47,7 +52,8 @@
 }
 
 .home_bottom{
-    margin-top: 5%;;
+    margin-top: 5%;
+    background-color: white;
 }
 
 .welcome_title, .welcome_subtitle{
@@ -94,7 +100,6 @@
     display: block;
     margin: 0 auto;
     margin-bottom: 2%;
-    //Edit the colour of the logo's in adobe xd!
 }
 
 .feature_title{
@@ -121,4 +126,48 @@ footer{
 .copyright-text{
     color: $logo !important;
 }
+
+.copyright-text:hover{
+    color: white !important;
+}
+
+.signin{
+    color: white;
+    margin-bottom: 10%;
+}
+
+.login_img{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.login2{
+    background-color: $logo;
+    border: 2px solid;
+    color: white;
+}
+
+.google-login{
+    background-color: $google;
+    border: 2px solid;
+    color: white;
+}
+.facebook-login{
+    background-color: #3b5998;
+    border: 2px solid;
+    color: white;
+}
+
+.pwd-reset{
+    color: white;
+}
+
+.form-control{
+    color: black !important;
+}
+
+.reg-link{
+    color: white;
+}
+
 //Media Queries
