@@ -147,6 +147,12 @@ footer{
     color: white;
 }
 
+.login2:hover:active:focus:visited{
+    background-color: $logo;
+    border: 2px solid;
+    color: white !important;
+}
+
 .google-login{
     background-color: $google;
     border: 2px solid;

@@ -23,7 +23,7 @@ const Login = (props) => {
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
-        props.history.push('/lists')
+        props.historyx  .push('/dashboard')
       }
       else
         setMessage(message);
