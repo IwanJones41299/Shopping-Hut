@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../Services/AuthService";
 import Message from "../Components/message";
+import name_img from "../images/name.svg";
 import uname_img from "../images/login.svg";
+import email_img from "../images/email.svg"
 import password_img from "../images/password.svg";
 
 const Register = (props) => {
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ name : "", username: "", email: "", password: "" });
   const [message, setMessage] = useState(null);
   let timerID = useRef(null);
 
@@ -46,7 +48,7 @@ const Register = (props) => {
           <div className="input-group form-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                  <img src={password_img} className="login_img"></img>
+                  <img src={name_img} className="login_img"></img>
                 </span>
               </div>
               <input
@@ -76,7 +78,7 @@ const Register = (props) => {
             <div className="input-group form-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                  <img src={password_img} className="login_img"></img>
+                  <img src={email_img} className="login_img"></img>
                 </span>
               </div>
               <input

@@ -34,12 +34,12 @@ userRouter.post('/register', (req,res) => {
 });
 
 //User login
-userRouter.post('/login',passport.authenticate('local',{session : false}),(req,res) => {
+userRouter.post('/login',passport.authenticate('local',{session : false}), (req, res) => {
     if(req.isAuthenticated()){
-        const {_id,name,username} = req.user;
+        const {_id,username} =req.user;
         const token = signtoken(_id);
         res.cookie('access_token',token,{httpOnly: true, sameSite: true});
-        res.status(200).json({isAuthenticated : true,user : {name,username}});
+        res.status(200).json({isAuthenticated : true, user : {username}});
     }
 });
 
@@ -78,9 +78,9 @@ userRouter.get('/lists',passport.authenticate('jwt',{session : false}),(req,res)
     });
 });
 
-userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    const {name,username} = req.user;
-    res.status(200).json({isAuthenticated : true, user : {name,username}});
-})
+userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), (req, res) => {
+    const {username} = req.user;
+    res.status(200).json({isAuthenticated : true, user : {username}});
+});
 
 module.exports = userRouter;
