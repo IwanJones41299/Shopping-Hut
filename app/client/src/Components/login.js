@@ -14,6 +14,7 @@ const Login = (props) => {
   const onChange = (e) => {
     e.preventDefault();
     setUser({ ...user, [e.target.name]: e.target.value });
+    //Delte following line, once testing is complete!
     console.log(user);
   };
 
@@ -25,7 +26,7 @@ const Login = (props) => {
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
-        props.history.push("/lists");
+        props.history.push("/dashboard");
       } else setMessage(message);
     });
   };

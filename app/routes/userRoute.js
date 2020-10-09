@@ -83,4 +83,6 @@ userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), 
     res.status(200).json({isAuthenticated : true, user : {username}});
 });
 
+
+
 module.exports = userRouter;
