@@ -191,8 +191,15 @@ footer{
     color: black !important;
 }
 
-.reg-link{
+.reg-link, .login-link{
     color: white;
+}
+
+.reg2{
+    background-color: $logo;
+    border: 2px solid;
+    color: white;
+    margin-bottom: 2%;
 }
 
 //Media Queries

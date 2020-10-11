@@ -105,9 +105,16 @@ const Register = (props) => {
               ></input>
             </div>
 
-            <button className="btn btn-block login2" type="submit">
+            <button className="btn btn-block reg2" type="submit">
               Register
             </button>
+            <div className="login-link">
+                Already have an account?
+                <a href="/register" className="reg-link">
+                  {" "}
+                  Login now
+                </a>
+              </div>
           </form>
           {message ? <Message message={message} /> : null}
         </div>
