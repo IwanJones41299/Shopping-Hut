@@ -13,6 +13,11 @@ body{
     border: none;
     outline: none;
 }
+
+.navbar-nav{
+    flex-direction: row ;
+}
+
 .nav_Title{
     color: $logo;
     margin-left: 10%;
@@ -202,4 +207,12 @@ footer{
     margin-bottom: 2%;
 }
 
+.welcome_banner{
+    margin-top: 45%;
+    color: white;
+}
+
+.bottomNav{
+    justify-self: center;
+}
 //Media Queries
