@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../Components/navbar";
 
-const Dashboard = (props) => {
+const search = (props) => {
   return (
-    <div className="container-fluid dashboard-container">
-      <h1 className="welcome_banner">Welcome (username)</h1>
+    <div className="container-fluid list-container">
+      <h1 className="search_title">Product Search</h1>
+
+      {/*Search box and the results table to be displayed below here*/}
+
+      {/* User navbar */}
       <nav className="navbar navbar-dark bottomNav">
         <ul className="navbar-nav mr-auto dashNav">
           <Link to="/dashboard">
@@ -23,4 +26,4 @@ const Dashboard = (props) => {
   );
 };
 
-export default Dashboard;
+export default search;

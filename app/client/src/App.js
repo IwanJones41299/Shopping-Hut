@@ -5,6 +5,8 @@ import Home from './Components/home';
 import Login from './Components/login';
 import Dashboard from './Components/dashboard';
 import Register from './Components/register';
+import ListMenu from './Components/listMenu';
+import search from './Components/search';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
@@ -16,6 +18,8 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/listMenu" component={ListMenu}/>
+        <Route path="/search" component={search}/>
       </Router>
   );
 }

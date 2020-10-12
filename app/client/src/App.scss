@@ -12,6 +12,9 @@ body{
     background-color: $primary !important;
     border: none;
     outline: none;
+    padding-bottom: 0;
+    margin-bottom: 1.5%;
+    height: 2%;
 }
 
 .navbar-nav{
@@ -43,7 +46,6 @@ body{
 }
 
 .home_top {
-    margin-top: 5%;
     margin-bottom: 5%;
     background-color: white;
 }
@@ -213,6 +215,61 @@ footer{
 }
 
 .bottomNav{
-    justify-self: center;
+    background-color: $logo !important;
+    border-radius: 15px 15px 15px 15px;
+    text-align: center !important;
+    align-content: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 5%;
+    padding: 5% 2% 5% 5%;
+    position: fixed;
+    bottom: 0;
+    left: 8%;
+    width: 84%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    margin-right: 20%;
+}
+
+.dashNav{
+    width: 100%;
+    justify-content: center;
+}
+
+.dash-item:hover,:link{
+    color:$primary !important;
+    text-decoration: none !important;
+    border: none !important;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.category_title{
+    color: $logo;
+    margin-top: 5%;
+    margin-bottom: 15%;
+}
+
+.list-container{
+    padding-bottom: 15%;
+}
+
+.list-group-item{
+    border-radius: 15px !important;
+    margin-bottom: 4%;
+    color: $primary !important;
+}
+
+.list-group-item:hover:link{
+    color: $logo !important;
+    text-transform: uppercase;
+    transition: .5s;
+}
+
+.search_title{
+    color: $logo;
+    margin-top: 5%;
+    margin-bottom: 15%;
 }
 //Media Queries
