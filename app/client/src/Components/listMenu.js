@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const listMenu = (props) => {
+const listMenu = () => {
   return (
     <div className="container-fluid list-container">
       <h1 className="category_title">Categories</h1>
