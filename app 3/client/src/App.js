@@ -7,6 +7,7 @@ import Dashboard from './Components/dashboard';
 import Register from './Components/register';
 import ListMenu from './Components/listMenu';
 import search from './Components/search';
+import fruit_veg from './Components/fruit_veg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
@@ -20,6 +21,8 @@ function App() {
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>
+        {/* List Routes */}
+        <Route path="/fruit_veg" component={fruit_veg}/>
       </Router>
   );
 }
