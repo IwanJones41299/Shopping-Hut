@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../Services/AuthService";
-import Message from "../Components/message";
+import Message from "./message";
 import name_img from "../images/name.svg";
 import uname_img from "../images/login.svg";
 import email_img from "../images/email.svg"

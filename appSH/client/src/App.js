@@ -7,7 +7,7 @@ import Dashboard from './Components/dashboard';
 import Register from './Components/register';
 import ListMenu from './Components/listMenu';
 import search from './Components/search';
-import fruit_veg from './Components/ListComponents/fruit_veg';
+import fruitvegList from './Components/ListComponents/FruitVegList';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
@@ -22,7 +22,7 @@ function App() {
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>
         {/* List Routes */}
-        <Route path="/fruit_veg" component={fruit_veg}/>
+        <Route path="/FruitVegList" component={fruitvegList}/>
       </Router>
   );
 }

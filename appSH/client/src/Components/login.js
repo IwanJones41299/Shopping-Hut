@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import AuthService from "../Services/AuthService";
-import Message from "../Components/message";
+import Message from "./message";
 import { AuthContext } from "../Context/AuthContext";
 import uname_img from "../images/login.svg";
 import password_img from "../images/password.svg";
