@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../Components/navbar";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return (
     <div className="container-fluid dashboard-container">
       <h1 className="welcome_banner">Welcome (username)</h1>

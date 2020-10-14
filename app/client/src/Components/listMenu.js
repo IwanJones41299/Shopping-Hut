@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
-const listMenu = () => {
+const listMenu = (props) => {
   return (
     <div className="container-fluid list-container">
       <h1 className="category_title">Categories</h1>
       
       <div className="list-group cateogry_list">
-        <a href="fruit_veg-list" className="list-group-item list-group-item-action">
+        <a href="/fruit_veg" className="list-group-item list-group-item-action">
           Fruit & Veg
         </a>
-        <a href="/fresh_fodos" className="list-group-item list-group-item-action">
+        <a href="fresh_fodos" className="list-group-item list-group-item-action">
           Fresh Foods
         </a>
         <a href="/frozen_foods" className="list-group-item list-group-item-action">
