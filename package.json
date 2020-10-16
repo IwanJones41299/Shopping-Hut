@@ -1,5 +1,5 @@
 {
-  "name": "prototype",
+  "name": "SH",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,28 +10,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IwanJones41299/prototype.git"
+    "url": "git+https://github.com/IwanJones41299/Shopping-Hut.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IwanJones41299/prototype/issues"
+    "url": "https://github.com/IwanJones41299/Shopping-Hut/issues"
   },
-  "homepage": "https://github.com/IwanJones41299/prototype#readme",
+  "homepage": "https://github.com/IwanJones41299/Shopping-Hut#readme",
   "dependencies": {
-    "antd": "^4.6.1",
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.0",
+    "mongoose": "^5.10.9",
+    "node-sass": "^4.14.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "sass": "^1.26.11"
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.5"
   }
 }

@@ -1,1 +1,0 @@
-backend and frontend functionality is complete but the styling hasnt been as this wasnt important and can be refined in actual third year project
