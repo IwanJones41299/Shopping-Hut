@@ -34,7 +34,7 @@ const Register = (props) => {
       if (!message.msgError) {
         timerID = setTimeout(() => {
           props.history.push("/login");
-        }, 2000);
+        }, 100);
       }
     });
   };
@@ -55,6 +55,7 @@ const Register = (props) => {
                 type="text"
                 className="form-control"
                 name="name"
+                value={user.name}
                 onChange={onChange}
                 placeholder="name..."
               ></input>
@@ -70,6 +71,7 @@ const Register = (props) => {
                 type="text"
                 className="form-control"
                 name="username"
+                value={user.username}
                 onChange={onChange}
                 placeholder="username..."
               ></input>
@@ -85,6 +87,7 @@ const Register = (props) => {
                 type="text"
                 className="form-control"
                 name="email"
+                value={user.email}
                 onChange={onChange}
                 placeholder="email..."
               ></input>
@@ -100,6 +103,7 @@ const Register = (props) => {
                 type="password"
                 className="form-control"
                 name="password"
+                value={user.password}
                 onChange={onChange}
                 placeholder="password..."
               ></input>
@@ -110,7 +114,7 @@ const Register = (props) => {
             </button>
             <div className="login-link">
                 Already have an account?
-                <a href="/register" className="reg-link">
+                <a href="/login" className="reg-link">
                   {" "}
                   Login now
                 </a>

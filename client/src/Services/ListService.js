@@ -1,22 +1,26 @@
 export default {
-  getFruitVegList: () => {
-    return fetch("user/lists").then((response) => {
-      if (response.status != 401) {
-        return response.json().then((data) => data);
-      } else return { message: { msgBody: "UnAuthroized" }, msgBody: true };
-    });
+  getItems: () => {
+    return fetch("/user/lists")
+      .then(response => {
+        if (response.status !== 401) {
+          return response.json().then((data) => data);
+        } else
+          return { message: { msgBody: "Unauthorized" }, msgError: true };
+      });
   },
-  postFruitVegList: (list) => {
-    return fetch("/user/list", {
+  postItem: item => {
+    return fetch("user/list", {
       method: "post",
-      body: JSON.stringify(list),
+      body: JSON.stringify(item),
       headers: {
-        "Content-Type": "application",
+        "Content-Type": "application/json",
       },
-    }).then((response) => {
-      if (response.status != 401) {
+    }).then(response => {
+      if (response.status !== 401) {
         return response.json().then((data) => data);
-      } else return { message: { msgBody: "UnAuthroized" }, msgBody: true };
+      } else
+        return { message: { msgBody: "Unauthorized" }, msgError: true };
     });
+    
   },
 };
