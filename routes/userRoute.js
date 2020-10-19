@@ -78,16 +78,6 @@ userRouter.get('/lists',passport.authenticate('jwt',{session : false}),(req,res)
     });
 });
 
-userRouter.delete('/lists',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    User.findById({_id : req.user._id}).populate('lists').exec((err,document)=>{
-        if(err)
-            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
-        else{
-            res.status(200).json({lists : document.lists, authenticated : true});
-        }
-    });
-});
-
 userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), (req, res) => {
     const {username} = req.user;
     res.status(200).json({isAuthenticated : true, user : {username}});
