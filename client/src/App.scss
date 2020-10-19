@@ -276,4 +276,33 @@ footer{
 .item_title{
     color: white !important;
 }
+
+.product_input{
+    margin-top: 2%;
+}
+
+.btn-add{
+    margin-top: 2%;
+}
+
+.thead-primary{
+    background-color: $primary;
+    color: white;
+    text-align: center;
+}
+
+.product_results{
+    text-align: center;
+    color: white;
+}
+
+.crud-btn{
+    margin-top: 6%;
+    padding: 6px !important;
+}
+
+.btn-primary{
+    border-top: none !important;
+}
+
 //Media Queries

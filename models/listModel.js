@@ -6,7 +6,7 @@ const shoppingList = new mongoose.Schema({
         required : true
     },
     quantity : {
-        type : String,
+        type : Number,
         required : true
     },
     user : {
