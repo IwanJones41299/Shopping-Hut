@@ -21,6 +21,15 @@ export default {
       } else
         return { message: { msgBody: "Unauthorized" }, msgError: true };
     });
-    
+
   },
+  /* getEdit: () => {
+    return fetch("/user/edit/:id")
+      .then(response => {
+        if (response.status !== 401) {
+          return response.json().then((data) => data);
+        } else
+          return { message: { msgBody: "Unauthorized" }, msgError: true };
+      });
+  } */
 };

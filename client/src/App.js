@@ -8,6 +8,7 @@ import Register from './Components/register';
 import ListMenu from './Components/listMenu';
 import search from './Components/search';
 import fruit_veg from './Components/Lists/fruit_veg';
+import fruit_vegUpdate from './Components/Lists/fruit_vegUpdate';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>
         <Route path="/fruit_veg" component={fruit_veg}/>
+        <Route path="/update/:id" component={fruit_vegUpdate}/>
       </Router>
   );
 }

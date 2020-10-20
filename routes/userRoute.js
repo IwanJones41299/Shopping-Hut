@@ -78,6 +78,41 @@ userRouter.get('/lists',passport.authenticate('jwt',{session : false}),(req,res)
     });
 });
 
+//View single product
+userRouter.get('/edit/:id', (req, res) => {
+    const id = req.params.id;
+    List.findById(id, (err, list) => {
+        res.json(list);
+    })
+});
+
+//Edit single product
+userRouter.post('/update/:id', function(req, res){
+    List.findById(req.params.id, function(err, list){
+        if(!list)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else
+            list.name = req.body.name;
+            list.quantity = req.body.quantity;
+            list.user = req.body.user;
+
+            list.save().then(list => {
+                res.json("Item updated");
+            })
+            .catch(err => {
+                res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+            })
+    })
+});
+
+//Delete button route
+/* userRouter.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    List.findById(id, (err, list) => {
+        res.json(list);
+    })
+}); */
+
 userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), (req, res) => {
     const {username} = req.user;
     res.status(200).json({isAuthenticated : true, user : {username}});
