@@ -23,7 +23,7 @@ function App() {
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>
         <Route path="/fruit_veg" component={fruit_veg}/>
-        <Route path="/update/:id" component={fruit_vegUpdate}/>
+        <Route path={"/edit/"} component={fruit_vegUpdate}/>
       </Router>
   );
 }

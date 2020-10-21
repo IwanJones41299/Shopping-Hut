@@ -1,19 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ListItem = (props) => {
+const ListEdit = (props) => {
   return (
     <>
       <tr className="product_results">
         <td className="#">{props.list.name}</td>
         <td className="#">{props.list.quantity}</td>
         <td className="#">{props.list.user}</td>
-        <Link to={"/edit/"+props.list._id}>
-          <td className="btn btn-sm btn-primary crud-btn">Edit/Delete</td>
+        <Link to="/fruit_veg">
+          <td className="btn btn-sm btn-danger">Delete</td>
         </Link>
       </tr>
     </>
   );
 };
 
-export default ListItem;
+export default ListEdit;
