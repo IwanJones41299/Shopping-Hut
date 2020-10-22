@@ -11,18 +11,25 @@ const ContactForm = () => {
 
   const [result, setResult] = useState(null);
 
-  const sendForm = (event) => {
+  const sendForm = event => {
     event.preventDefault();
-
     axios
-        .post('/send', { ...state })
-        .then(response => {
-            setResult(response.data);
-            setState({ name : "", email : "", subject : "", message : ""});
-        })
-        .catch(() => {
-            setResult({ sucess : false, message : "Something went wrong" });
+      .post('/send', { ...state })
+      .then(response => {
+        setResult(response.data);
+        setState({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
         });
+      })
+      .catch(() => {
+        setResult({
+          success: false,
+          message: 'Something went wrong. Try again later'
+        });
+      });
   };
 
   const onChange = (event) => {
