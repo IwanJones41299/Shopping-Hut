@@ -305,4 +305,24 @@ footer{
     border-top: none !important;
 }
 
+.contact_title{
+    color: $logo;
+    margin-bottom: 2%;
+}
+
+.contact_subtitle{
+    color: white;
+    font-size: 1em;
+    margin-bottom: 10%;
+}
+
+.contact_input{
+    margin-bottom: 4%;
+}
+
+.error{
+    color: white;
+    font-weight: bold;
+}
+
 //Media Queries

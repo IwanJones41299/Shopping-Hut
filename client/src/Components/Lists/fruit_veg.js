@@ -5,7 +5,11 @@ import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
 
 const Items = (props) => {
-  const [list, setList] = useState({ name: "", quantity: Number, user: "" });
+  const [list, setList] = useState({
+    name: "",
+    quantity: Number,
+    user: "",
+  });
   const [lists, setLists] = useState([]);
   const [message, setMessage] = useState(null);
   const authcontext = useContext(AuthContext);
@@ -29,7 +33,11 @@ const Items = (props) => {
       //JWT token expired if this else if runs
       else if (message.msgBody === "Unauthorized") {
         setMessage(message);
-        authcontext.setUser({ name: "", username: " ", email: "" });
+        authcontext.setUser({
+          name: "",
+          username: " ",
+          email: "",
+        });
         authcontext.setIsAuthenticated(false);
       } else {
         setMessage(message);
@@ -38,11 +46,18 @@ const Items = (props) => {
   };
 
   const onChange = (e) => {
-    setList({ ...list, [e.target.name]: e.target.value });
+    setList({
+      ...list,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const resetForm = () => {
-    setList({ name: "", quantity: "", user: "" });
+    setList({
+      name: "",
+      quantity: "",
+      user: "",
+    });
   };
 
   return (
@@ -74,27 +89,26 @@ const Items = (props) => {
             placeholder="Who has added this product..."
           />
           <button className="btn btn-primary btn-block btn-add" type="submit">
-            Add
-          </button>
-        </form>
-        {message ? <Message message={message} /> : null}
-      </div>
+            Add{" "}
+          </button>{" "}
+        </form>{" "}
+        {message ? <Message message={message} /> : null}{" "}
+      </div>{" "}
       <table class="table table-borderless">
         <thead class="thead-primary">
           <tr>
-            <th scope="col">Product</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">User</th>
-            <th scope="col">Edit/Delete</th>
-          </tr>
-        </thead>
+            <th scope="col"> Product </th> <th scope="col"> Quantity </th>{" "}
+            <th scope="col"> User </th> <th scope="col"> Edit / Delete </th>{" "}
+          </tr>{" "}
+        </thead>{" "}
         <tbody>
+          {" "}
           {lists.map((list) => {
             return <ListItem key={list._id} list={list} />;
-          })}
-        </tbody>
+          })}{" "}
+        </tbody>{" "}
       </table>
-      ;
+      ;{" "}
     </div>
   );
 };

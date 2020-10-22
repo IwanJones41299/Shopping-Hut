@@ -7,6 +7,7 @@ import Dashboard from './Components/dashboard';
 import Register from './Components/register';
 import ListMenu from './Components/listMenu';
 import search from './Components/search';
+import contactForm from './Components/contactForm';
 import fruit_veg from './Components/Lists/fruit_veg';
 import fruit_vegUpdate from './Components/Lists/fruit_vegUpdate';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -22,6 +23,9 @@ function App() {
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>
+        <Route path="/contact" component={contactForm}/>
+
+        {/* Lists */}
         <Route path="/fruit_veg" component={fruit_veg}/>
         <Route path={"/edit/"} component={fruit_vegUpdate}/>
       </Router>
