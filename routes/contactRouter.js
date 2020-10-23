@@ -29,9 +29,9 @@ contactRouter.post('/', (req,res, next) => {
         to: 'iwanjones41299@gmail.com',
         subject: req.body.subject,
         text: `
-        from:
+        From:
         ${req.body.name}
-        contact: 
+        Contact information: 
         ${req.body.email}
         message:
         ${req.body.text}
