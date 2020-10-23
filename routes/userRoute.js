@@ -118,5 +118,4 @@ userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), 
 //Facebook social login button
 
 
-
 module.exports = userRouter;

@@ -1,43 +1,37 @@
-import React, { useState } from "react";
+import React, {useState, Component} from "react";
 import axios from 'axios';
 
 const ContactForm = () => {
-  const [state, setState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
 
-  const [result, setResult] = useState(null);
+  const [inputs, setInputs] = useState({name: '', email: '', subject: '', message: ''})
 
-  const sendForm = event => {
-    event.preventDefault();
-    axios
-      .post('/send', { ...state })
-      .then(response => {
-        setResult(response.data);
-        setState({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
-      })
-      .catch(() => {
-        setResult({
-          success: false,
-          message: 'Something went wrong. Try again later'
-        });
-      });
-  };
+  const onChange = e => {
+    const{name, value} = e.target
+    setInputs(prev => ({...prev, [name]: value }))
+  }
 
-  const onChange = (event) => {
-    const { name, value } = event.target;
 
-    setState({
-      ...state,
-      [name]: value,
+  const sendForm = e => {
+    e.preventDefault();
+
+    const {name,email,subject,message} = inputs
+
+    axios.post('/contact', {
+      name,
+      email,
+      subject,
+      text: message
+    })
+
+    resetForm();
+  }
+
+  const resetForm = () => {
+    setInputs({
+      name: "",
+      email: "",
+      subject: '',
+      message: "",
     });
   };
 
@@ -46,18 +40,12 @@ const ContactForm = () => {
       <h1 className="contact_title">Contact Form</h1>
       <h4 className="contact_subtitle">Please fill in all details required below</h4>
 
-      {result && (
-        <p className={`${result.success ? 'success' : 'error'}`}>
-          {result.message}
-        </p>
-      )}
-
       <form onSubmit={sendForm}>
         <div className="form-group">
           <input 
             type="text"
             name="name"
-            value={state.name}
+            value={inputs.name}
             placeholder="Enter your full name..."
             onChange={onChange}
             className="form-control contact_input" 
@@ -65,7 +53,7 @@ const ContactForm = () => {
           <input 
             type="text"
             name="email"
-            value={state.email}
+            value={inputs.email}
             placeholder="Enter your email..."
             onChange={onChange}
             className="form-control contact_input" 
@@ -73,14 +61,14 @@ const ContactForm = () => {
           <input 
             type="text"
             name="subject"
-            value={state.subject}
+            value={inputs.subject}
             placeholder="Subject..."
             onChange={onChange}
             className="form-control contact_input" 
           />
           <textarea
             name="message"
-            value={state.message}
+            value={inputs.message}
             placeholder="Enter your message..."
             onChange={onChange}
             cols="30"
@@ -95,10 +83,5 @@ const ContactForm = () => {
     </div>
   );
 };
-// fields for the contact form -->
-//full name
-//email
-//subject
-//message
 
 export default ContactForm;
