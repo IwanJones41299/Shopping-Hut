@@ -6,8 +6,8 @@ const nodemailer = require('nodemailer')
 //Contact form route
 const transport = {
     host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.acc_EMAIL,
         pass: process.env.acc_PASSWORD
