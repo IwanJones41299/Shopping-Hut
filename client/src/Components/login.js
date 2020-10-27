@@ -70,14 +70,6 @@ const Login = (props) => {
             <button className="btn btn-block login2" type="submit">
               Login
             </button>
-            {/* Google login button */}
-            <button className="btn btn-block google-login" type="submit">
-              Google
-            </button>
-            {/* Facebook login button */}
-            <button className="btn btn-block facebook-login" type="submit">
-              Facebook
-            </button>
             <div className="card-body">
               <div className="pwd-reset">
                 Forgotton your

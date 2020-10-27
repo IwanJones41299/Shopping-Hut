@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-/* import ListEdit from "./listEdit"; */
+import ListEdit from "./listEdit";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
@@ -79,7 +79,7 @@ const ItemEdit = (props) => {
         </form>
         {message ? <Message message={message} /> : null}
       </div>
-      {/* <table class="table table-borderless">
+      <table class="table table-borderless">
         <thead class="thead-primary">
           <tr>
             <th scope="col">Product</th>
@@ -93,7 +93,7 @@ const ItemEdit = (props) => {
             return <ListEdit key={list._id} list={list} />;
           })}
         </tbody>
-      </table> */}
+      </table>
       ;
     </div>
   );
