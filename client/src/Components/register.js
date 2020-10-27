@@ -3,11 +3,18 @@ import AuthService from "../Services/AuthService";
 import Message from "./message";
 import name_img from "../images/name.svg";
 import uname_img from "../images/login.svg";
-import email_img from "../images/email.svg"
+import email_img from "../images/email.svg";
 import password_img from "../images/password.svg";
+import options_img from "../images/options.svg";
 
 const Register = (props) => {
-  const [user, setUser] = useState({ name : "", username: "", email: "", password: "" });
+  const [user, setUser] = useState({
+    name: "",
+    username: "",
+    email: "",
+    accountRole: "",
+    password: "",
+  });
   const [message, setMessage] = useState(null);
   let timerID = useRef(null);
 
@@ -22,11 +29,18 @@ const Register = (props) => {
   };
 
   const resetForm = () => {
-    setUser({ name: "", username: "", email: "", password: "" });
+    setUser({
+      name: "",
+      username: "",
+      email: "",
+      accountRole: "",
+      password: "",
+    });
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(user); //for testing only
     AuthService.register(user).then((data) => {
       const { message } = data;
       setMessage(message);
@@ -45,7 +59,7 @@ const Register = (props) => {
         <div className="card-body">
           <h3 className="signin">Register</h3>
           <form onSubmit={onSubmit}>
-          <div className="input-group form-group">
+            <div className="input-group form-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
                   <img src={name_img} className="login_img"></img>
@@ -96,6 +110,22 @@ const Register = (props) => {
             <div className="input-group form-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
+                  <img src={options_img} className="login_img"></img>
+                </span>
+              </div>
+              <input
+                type="text"
+                className="form-control"
+                name="accountRole"
+                value={user.accountRole}
+                onChange={onChange}
+                placeholder="Type - Personal/Family"
+              ></input>
+            </div>
+
+            <div className="input-group form-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
                   <img src={password_img} className="login_img"></img>
                 </span>
               </div>
@@ -113,12 +143,12 @@ const Register = (props) => {
               Register
             </button>
             <div className="login-link">
-                Already have an account?
-                <a href="/login" className="reg-link">
-                  {" "}
-                  Login now
-                </a>
-              </div>
+              Already have an account?
+              <a href="/login" className="reg-link">
+                {" "}
+                Login now
+              </a>
+            </div>
           </form>
           {message ? <Message message={message} /> : null}
         </div>
