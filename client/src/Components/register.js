@@ -113,14 +113,17 @@ const Register = (props) => {
                   <img src={options_img} className="login_img"></img>
                 </span>
               </div>
-              <input
-                type="text"
-                className="form-control"
+              <select 
+                class="custom-select"
+                id="accountRole"
                 name="accountRole"
                 value={user.accountRole}
                 onChange={onChange}
-                placeholder="Type - Personal/Family"
-              ></input>
+                >
+                <option selected >Choose an account type</option>
+                <option value="Personal" id="Personal">Personal</option>
+                <option value="Family" id="Family">Family</option>
+              </select>
             </div>
 
             <div className="input-group form-group">
