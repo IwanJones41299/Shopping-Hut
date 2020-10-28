@@ -48,7 +48,7 @@ const Register = (props) => {
       if (!message.msgError) {
         timerID = setTimeout(() => {
           props.history.push("/login");
-        }, 100);
+        }, 2000);
       }
     });
   };
