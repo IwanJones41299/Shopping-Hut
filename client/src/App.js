@@ -5,6 +5,7 @@ import Home from './Components/home';
 import Login from './Components/login';
 import Dashboard from './Components/dashboard';
 import Register from './Components/register';
+import PasswordReset from './Components/passwordReset';
 import ListMenu from './Components/listMenu';
 import search from './Components/search';
 import contactForm from './Components/contactForm';
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
+        <Route path="/reset-password" component={PasswordReset}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>

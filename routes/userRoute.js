@@ -2,6 +2,8 @@ const express = require('express');
 const userRouter = express.Router();
 const passport = require('passport');
 const passportConfig = require('../passport');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const JWT = require('jsonwebtoken');
 const User = require('../models/userModel');
 const List = require('../models/listModel');
@@ -48,6 +50,8 @@ userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res
     res.clearCookie('access_token');
     res.json({user:{username : ""},sucess :true});
 });
+
+//Reset Password
 
 //Shopping list
 userRouter.post('/list',passport.authenticate('jwt',{session : false}),(req,res)=>{
