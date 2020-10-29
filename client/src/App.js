@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './Components/navbar';
-import Home from './Components/home';
-import Login from './Components/login';
-import Dashboard from './Components/dashboard';
-import Register from './Components/register';
-import PasswordReset from './Components/passwordReset';
-import ListMenu from './Components/listMenu';
-import search from './Components/search';
-import contactForm from './Components/contactForm';
-import fruit_veg from './Components/Lists/fruit_veg';
-import fruit_vegUpdate from './Components/Lists/fruit_vegUpdate';
+import Navbar from './Components/navbar.jsx';
+import Home from './Components/home.jsx';
+import Login from './Components/login.jsx';
+import Dashboard from './Components/dashboard.jsx';
+import Register from './Components/register.jsx';
+import ForgottenPassword from './Components/forgottenPassword.jsx';
+import ListMenu from './Components/listMenu.jsx';
+import search from './Components/search.jsx';
+import contactForm from './Components/contactForm.jsx';
+import fruit_veg from './Components/Lists/fruit_veg.jsx';
+import fruit_vegUpdate from './Components/Lists/fruit_vegUpdate.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
-        <Route path="/reset-password" component={PasswordReset}/>
+        <Route path="/forgotten-password" component={ForgottenPassword}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>

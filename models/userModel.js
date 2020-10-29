@@ -25,6 +25,8 @@ const UserSchema = new mongoose.Schema({
         required : true,
         min : 8
     },
+    resetToken : String, 
+    expireToken : Date,
     lists : [{type : mongoose.Schema.Types.ObjectId, ref : 'List'}]
 });
 

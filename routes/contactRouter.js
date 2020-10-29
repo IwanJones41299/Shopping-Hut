@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport(transport);
         if(error) {
            console.log(error)
         } else {
-            console.log("Contact form is all good!");
+            console.log(sucess);
         }
     });
 

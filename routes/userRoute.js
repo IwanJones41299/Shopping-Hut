@@ -4,6 +4,7 @@ const passport = require('passport');
 const passportConfig = require('../passport');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+const sendgridTransport = require('nodemailer-sendgrid-transport');
 const JWT = require('jsonwebtoken');
 const User = require('../models/userModel');
 const List = require('../models/listModel');
@@ -51,7 +52,36 @@ userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res
     res.json({user:{username : ""},sucess :true});
 });
 
-//Reset Password
+//Forgotten Password
+userRouter.post('/forgotten-password', (req, res) => {
+    crypto.randomBytes(32, (err, buffer) => {
+        if(err){
+            console.log(err);
+        }
+        const token = buffer.toString("hex")
+        User.findOne({email:req.body.email})
+        .then(user => {
+            if(!user){
+                return res.status(422).json({error: "The user does not exist"})
+            }
+            user.resetToken = token
+            user.expireToken = Date.now() + 600000
+            user.save().then((result) => {
+                transporter.sendMail({
+                    to:user.email,
+                    from:"iwanjones41299@gmail.com",
+                    subject: "Password reset request",
+                    html: `
+                    <h3>This is an automated email for a password request, 
+                    do not reply to this email</h3>
+                    <p>Click this <a href="http://localhost:3000/reset/${token}>Link</a> to reset Password</p>
+                    `
+                })
+                res.json({message:"Check your email for password reset"})
+            })
+        })
+    })
+});
 
 //Shopping list
 userRouter.post('/list',passport.authenticate('jwt',{session : false}),(req,res)=>{
