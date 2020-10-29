@@ -53,34 +53,56 @@ userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res
 });
 
 //Forgotten Password
-userRouter.post('/forgotten-password', (req, res) => {
-    crypto.randomBytes(32, (err, buffer) => {
-        if(err){
-            console.log(err);
+userRouter.post('/forgotPassword', (req, res) => {
+    if(req.body.email === ''){
+        res.status(400).send('emai required');
+    }
+    console.error(req.body.email);
+    User.findOne({
+        where: {
+            email: req.body.email,
+        },
+    }).then((user) => {
+        if (user === null) {
+            console.error('email not in db');
+            res.status(403).send('email not in db');
+        }else {
+            const token = crypto.randomBytes(32).toString('hex');
+            user.update({
+                resetToken : token, 
+                expireToken : Date.now + 900000,
+            });
+
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 465,
+                secure: true,
+                auth: {
+                        user: process.env.acc_EMAIL,
+                        pass: process.env.acc_PASSWORD
+                },
+            });
+
+            const mailOptions = {
+                from : 'iwanjones41299@gmail.com',
+                to: `${user.email}`,
+                subject: 'Password reset link',
+                text: `Password reset email
+                    click the following <a href="http://localhost:3000/reset/${token}></a>
+                `
+            };
+            console.log('sending email');
+
+            transporter.sendMail(mailOptions, (err, response) => {
+                if(err){
+                    console.error('there was an error', err);
+                } else{
+                    console.log('here is the res', response);
+                    res.status(200).json('recovery email sent');
+                }
+            });
         }
-        const token = buffer.toString("hex")
-        User.findOne({email:req.body.email})
-        .then(user => {
-            if(!user){
-                return res.status(422).json({error: "The user does not exist"})
-            }
-            user.resetToken = token
-            user.expireToken = Date.now() + 600000
-            user.save().then((result) => {
-                transporter.sendMail({
-                    to:user.email,
-                    from:"iwanjones41299@gmail.com",
-                    subject: "Password reset request",
-                    html: `
-                    <h3>This is an automated email for a password request, 
-                    do not reply to this email</h3>
-                    <p>Click this <a href="http://localhost:3000/reset/${token}>Link</a> to reset Password</p>
-                    `
-                })
-                res.json({message:"Check your email for password reset"})
-            })
-        })
-    })
+    });
 });
 
 //Shopping list

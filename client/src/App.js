@@ -5,7 +5,7 @@ import Home from './Components/home.jsx';
 import Login from './Components/login.jsx';
 import Dashboard from './Components/dashboard.jsx';
 import Register from './Components/register.jsx';
-import ForgottenPassword from './Components/forgottenPassword.jsx';
+import ForgotPassword from './Components/forgottenPassword.jsx';
 import ListMenu from './Components/listMenu.jsx';
 import search from './Components/search.jsx';
 import contactForm from './Components/contactForm.jsx';
@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
-        <Route path="/forgotten-password" component={ForgottenPassword}/>
+        <Route path="/forgotPassword" component={ForgotPassword}/>
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/listMenu" component={ListMenu}/>
         <Route path="/search" component={search}/>

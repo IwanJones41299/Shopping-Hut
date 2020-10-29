@@ -1,56 +1,94 @@
-import React, { useState, useContext } from "react";
-import { useHistory } from 'react-router-dom';
+import React, { Component } from "react";
+import axios from 'axios';
 
 
-const PasswordReset = () => {
-  const history = useHistory()
-  const [email,setEmail] = useState("")
-  const onSubmit = () => {
-    if(!email){
-      console.log("error")
-      return
-    }
-    fetch("/forgotten-password", {
-      method: "post",
-      headers: {
-        "Content-Type" : "application/json"
-      },
-      body:JSON.stringify({email})
-    }).then(res => res.json())
-    .then(data => {
-      console.log(data)
-      if(data.error){
-        console.log(data.error)
-      }
-      else{
-        console.log("sucess")
-        history.push('/login')
-      }
-    })
+class ForgotPassword extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      email: '',
+      showError: false,
+      messageFromDb: '',
+    };
   }
 
-  return (
-    <div className="container-fluid contact_form">
-      <h1 className="contact_title">Contact Form</h1>
-      <h4 className="contact_subtitle">
-        Please fill in all details required below
-      </h4>
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
 
-      <form>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="email..."
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="form-control contact_input"
-            required
-          />
-          <button onClick={() => onSubmit()} className="btn btn-block btn-primary">Reset Password</button>
-        </div>
-      </form>
-    </div>
-  );
-};
+  sendEmail = e => {
+    e.preventDefault();
+    if(this.state.email === ''){
+      this.setState({
+        showError: false,
+        messageFromDb: '',
+      });
+    } else {
+      axios
+        .post('http://localhost:3000/forgotPassword', {
+          email: this.state.email,
+        })
+        .then(response => {
+          console.log(response.data);
+          if (response.data === 'email not in db'){
+            this.setState({
+              showError: true,
+              messageFromDb: '',
+            });
+          }else if(response.data === 'recovery email sent'){
+            this.setState({
+              showError: false,
+              messageFromDb: 'recovery email sent',
+            });
+          }
+        })
+        .catch(error => {
+          console.log(error.data);
+        });
+    }
+  };
 
-export default PasswordReset;
+  render() {
+    const { email, messageFromDb, showNullError, showError} = this.state;
+
+    return (
+      <div className="container-fluid contact_form">
+        <h1 className="contact_title">Contact Form</h1>
+        <h4 className="contact_subtitle">
+          Please fill in all details required below
+        </h4>
+  
+        <form onSubmit={this.sendEmail}>
+          <div className="form-group">
+            <input
+              type="text"
+              id="email"
+              placeholder="email..."
+              value={email}
+              onChange={this.handleChange('email')}
+              className="form-control contact_input"
+              required
+            />
+            <button type="submit" className="btn btn-block btn-primary">Reset Password</button>
+          </div>
+        </form>
+        {showNullError && (
+          <div><p>Email cannot be blank</p></div>
+        )}
+        {showError && (
+          <div><p>This email address isnt registered to a user</p></div>
+        )}
+        {messageFromDb === 'recovery email sent' && (
+          <div>Email sent!!!!</div>
+        )}
+      </div>
+    );
+  };
+}
+
+
+
+export default ForgotPassword;

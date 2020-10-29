@@ -73,7 +73,7 @@ const Login = (props) => {
             <div className="card-body">
               <div className="pwd-reset">
                 Forgotton your
-                <a href="/reset-password" className="pwd-reset">
+                <a href="/ForgotPassword" className="pwd-reset">
                   {" "}
                   Password
                 </a>
