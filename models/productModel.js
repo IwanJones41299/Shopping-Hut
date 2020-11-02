@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const shoppingList = new mongoose.Schema({
+const List = new mongoose.Schema({
     name : {
         type : String,
         required : true
@@ -15,4 +15,4 @@ const shoppingList = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('List', shoppingList);
+module.exports = mongoose.model('List', List);

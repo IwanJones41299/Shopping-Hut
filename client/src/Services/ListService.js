@@ -25,7 +25,7 @@ export default {
   },
 
   sendItemUpdate: item => {
-    return fetch("/user/update/_id", {
+    return fetch("/user/update/:id", {
       method: "post",
       body: JSON.stringify(item),
       headers: {

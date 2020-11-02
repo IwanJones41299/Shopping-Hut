@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const nodemailer = require('nodemailer');
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 5000;
 app.use(cookieParser());
@@ -17,6 +19,8 @@ mongoose.connect(
     console.log("MongoDB connected to the server -- SH");
   }
 );
+
+app.use(cors());
 
 const userRouter = require("./routes/userRoute");
 app.use("/user", userRouter);
