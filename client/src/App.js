@@ -12,9 +12,8 @@ import search from './Components/search.jsx';
 import contactForm from './Components/contactForm.jsx';
 import fruit_veg from './Components/Lists/fruit_veg.jsx';
 import fruit_vegUpdate from './Components/Lists/fruit_vegUpdate.jsx';
-import FreshFoodsList from './Components/Lists/freshfoods-list';
-import FreshFoodsEdit from './Components/Lists/freshfoods-edit';
-import FreshFoodsCreate from './Components/Lists/freshfoods-create';
+import fresh_food from './Components/Lists/fresh_food.jsx';
+import fresh_foodUpdate from './Components/Lists/fresh_foodUpdate.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
@@ -35,12 +34,10 @@ function App() {
 
         {/* Lists */}
         <Route path="/fruit_veg" component={fruit_veg}/>
-        <Route path={"/edit/"} component={fruit_vegUpdate}/>
+        <Route path={"/fv/edit/"} component={fruit_vegUpdate}/>
 
-        {/* Lists V2 */}
-        <Route path="/fresh_foods" exact component={FreshFoodsList} />
-        <Route path="/fresh_foods/edit/:id" exact component={FreshFoodsEdit} />
-        <Route path="/fresh_foods/create" exact component={FreshFoodsCreate} />
+        <Route path="/fresh_food" component={fresh_food}/>
+        <Route path={"/ff/edit/"} component={fresh_foodUpdate}/>
       </Router>
   );
 }

@@ -8,6 +8,7 @@ const ListEdit = (props) => {
         <td className="#">{props.list.name}</td>
         <td className="#">{props.list.quantity}</td>
         <td className="#">{props.list.user}</td>
+        {/* Add delete functionailty to this button */}
         <Link to="/fruit_veg">
           <td className="btn btn-sm btn-danger">Delete</td>
         </Link>

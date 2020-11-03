@@ -62,6 +62,7 @@ const Items = (props) => {
 
   return (
     <div>
+      <h3 className="text-center" style={{color: "white"}}>Fruit & Veg</h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input

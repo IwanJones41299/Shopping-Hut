@@ -8,7 +8,7 @@ const ListItem = (props) => {
         <td className="#">{props.list.name}</td>
         <td className="#">{props.list.quantity}</td>
         <td className="#">{props.list.user}</td>
-        <Link to={"/edit/"+props.list._id}>
+        <Link to={"/fruit_veg/edit/"+props.list._id}>
           <td className="btn btn-sm btn-primary crud-btn">Edit/Delete</td>
         </Link>
       </tr>

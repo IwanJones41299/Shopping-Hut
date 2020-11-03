@@ -10,7 +10,7 @@ const listMenu = (props) => {
         <a href="/fruit_veg" className="list-group-item list-group-item-action">
           Fruit & Veg
         </a>
-        <a href="/fresh_foods" className="list-group-item list-group-item-action">
+        <a href="/fresh_food" className="list-group-item list-group-item-action">
           Fresh Foods
         </a>
         <a href="/frozen_foods" className="list-group-item list-group-item-action">

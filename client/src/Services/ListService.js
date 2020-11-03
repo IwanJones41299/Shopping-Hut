@@ -9,7 +9,7 @@ export default {
       });
   },
   postItem: item => {
-    return fetch("user/list", {
+    return fetch("user/fruitVeg", {
       method: "post",
       body: JSON.stringify(item),
       headers: {
@@ -25,7 +25,7 @@ export default {
   },
 
   sendItemUpdate: item => {
-    return fetch("/user/update/:id", {
+    return fetch("/user/fruitVeg_List", {
       method: "post",
       body: JSON.stringify(item),
       headers: {

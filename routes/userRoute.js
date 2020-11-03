@@ -7,8 +7,7 @@ const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
 const JWT = require('jsonwebtoken');
 const User = require('../models/userModel');
-//const List = require('../models/listModel');
-const List = require('../models/productModel');
+const freshFoodList = require('../models/fruitVeg');
 
 const signtoken = userID => {
     return JWT.sign({
@@ -106,10 +105,10 @@ userRouter.post('/forgotPassword', (req, res) => {
     });
 });
 
-//Shopping list
-userRouter.post('/list',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    const list = new List(req.body);
-    list.save(err=>{
+//Shopping list -- Fruit and veg
+userRouter.post('/fruitVeg',passport.authenticate('jwt',{session : false}),(req,res)=>{
+    const fruitVeg_list = new freshFoodList(req.body);
+    fruitVeg_list.save(err=>{
         if(err)
             res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
         else{
@@ -125,18 +124,20 @@ userRouter.post('/list',passport.authenticate('jwt',{session : false}),(req,res)
 });
 
 //Retrieve users shopping list
-userRouter.get('/lists',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    User.findById({_id : req.user._id}).populate('lists').exec((err,document)=>{
+userRouter.get('/fruitVeg_List',passport.authenticate('jwt',{session : false}),(req,res)=>{
+    User.findById({_id : req.user._id}).populate('fvItems').exec((err,document)=>{
         if(err)
             res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
         else{
-            res.status(200).json({lists : document.lists, authenticated : true});
+            res.status(200).json({fvItems : document.fvItems, authenticated : true});
         }
     });
 });
 
+
+
 //View single product
-userRouter.get('/edit/:id', (req, res) => {
+userRouter.get('/fruit_veg/edit/:id', (req, res) => {
     let id = req.params.id;
     List.findById(id, (err, list) => {
         res.json(list);
@@ -168,52 +169,6 @@ userRouter.post('/update/:id', function(req, res){
 userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), (req, res) => {
     const {username} = req.user;
     res.status(200).json({isAuthenticated : true, user : {username}});
-});
-
-//V2 shopping list routes
-userRouter.route('/fresh_foods',passport.authenticate('jwt',{session : false}), (req, res) => {
-    User.findById({_id : req.user._id}).populate('freshfoods').exec((err,document)=>{
-        if(err)
-            console.log(err);
-        else{
-            res.json(freshfoods)
-        }
-    });
-});
-
-userRouter.route('/fresh_foods/:id').get(function(req, res){
-    let id = req.params.id;
-    List.findById(id, function(err, fresh_foods){
-        res.json(fresh_foods);
-    });
-});
-
-userRouter.route('/fresh_foods/add').post(function(req, res) {
-    let freshfoods = new List(req.body);
-    freshfoods.save()
-        .then(freshfoods => {
-            res.status(200).json({'items' : 'item added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new item failed');
-        });
-});
-
-userRouter.route('fresh_foods/update/:id').post(function(req, res) {
-    List.findById(req.params.id, function(err, freshfoods) {
-        if (!freshfoods)
-            res.status(404).send("data is not found");
-        else
-            freshfoods.name = req.body.name;
-            freshfoods.quantity = req.body.quantity;
-            freshfoods.user = req.body.user;
-            freshfoods.save().then(freshfoods => {
-                res.json('Item updated!');
-            })
-            .catch(err => {
-                res.status(400).send("Update not possible");
-            });
-    });
 });
 
 module.exports = userRouter;
