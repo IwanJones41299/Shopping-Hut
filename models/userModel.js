@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
     },
     resetToken : String, 
     expireToken : Date,
-    lists : [{type : mongoose.Schema.Types.ObjectId, ref : 'List'}]
+    fruitvegItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FruitVegItem'}]
 });
 
 UserSchema.pre('save', function(next){

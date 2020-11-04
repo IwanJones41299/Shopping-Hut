@@ -1,45 +1,28 @@
 export default {
-  getItems: () => {
-    return fetch("/user/lists")
+  getItems : () => {
+    return fetch('/user/fruitvegList')
       .then(response => {
-        if (response.status !== 401) {
-          return response.json().then((data) => data);
-        } else
-          return { message: { msgBody: "Unauthorized" }, msgError: true };
+        if(response.status != 401){
+          return response.json().then(data => data);
+        }
+        else
+          return {message : {msgBody : "Unauthorized"}, msgError : true};
       });
   },
-  postItem: item => {
-    return fetch("user/fruitVeg", {
-      method: "post",
-      body: JSON.stringify(item),
-      headers: {
-        "Content-Type": "application/json",
-      },
+
+  postItem : fruitVeg => {
+    return fetch('/user/fruitvegItems', {
+      method : "post",
+      body : JSON.stringify(fruitVeg),
+      headers : {
+        'Content-Type' : 'application/json'
+      }
     }).then(response => {
-      if (response.status !== 401) {
-        return response.json().then((data) => data);
-      } else
-        return { message: { msgBody: "Unauthorized" }, msgError: true };
+      if(response.status != 401){
+        return response.json().then(data => data);
+      }
+      else
+        return {message : {msgBody : "Unauthorized"}, msgError : true};
     });
-
-  },
-
-  sendItemUpdate: item => {
-    return fetch("/user/fruitVeg_List", {
-      method: "post",
-      body: JSON.stringify(item),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(response => {
-      if (response.status !== 401) {
-        return response.json().then((data) => data);
-      } else
-        return { message: { msgBody: "Unauthorized" }, msgError: true };
-    });
-
   }
-
-};
-
-
+}

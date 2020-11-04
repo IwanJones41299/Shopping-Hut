@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const freshFoodList = new mongoose.Schema({
+const FruitVegSchema = new mongoose.Schema({
     name : {
         type : String,
         required : true
@@ -15,4 +15,4 @@ const freshFoodList = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('freshFoodList', freshFoodList);
+module.exports = mongoose.model('FruitVegItem', FruitVegSchema);

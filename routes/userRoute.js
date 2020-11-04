@@ -7,13 +7,13 @@ const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
 const JWT = require('jsonwebtoken');
 const User = require('../models/userModel');
-const freshFoodList = require('../models/fruitVeg');
+const FruitVegItem = require('../models/fruitVeg');
 
 const signtoken = userID => {
     return JWT.sign({
         iss : "ShoppingHut",
         sub : userID
-    },"ShoppingHut",{expiresIn : "1h"});
+    },"ShoppingHut",{expiresIn : "1h"}); //Change the key before product to something more secure (Has to match secret or key in passport.js)
 }
 
 //Register a user
@@ -105,70 +105,38 @@ userRouter.post('/forgotPassword', (req, res) => {
     });
 });
 
-//Shopping list -- Fruit and veg
-userRouter.post('/fruitVeg',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    const fruitVeg_list = new freshFoodList(req.body);
-    fruitVeg_list.save(err=>{
-        if(err)
-            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
-        else{
-            req.user.lists.push(list);
-            req.user.save(err=>{
-                if(err)
-                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
-                else
-                    res.status(200).json({message : {msgBody : "Successfully added a product to your shoping list", msgError : false}});
-            });
-        }
-    })
-});
-
-//Retrieve users shopping list
-userRouter.get('/fruitVeg_List',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    User.findById({_id : req.user._id}).populate('fvItems').exec((err,document)=>{
-        if(err)
-            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
-        else{
-            res.status(200).json({fvItems : document.fvItems, authenticated : true});
-        }
-    });
-});
-
-
-
-//View single product
-userRouter.get('/fruit_veg/edit/:id', (req, res) => {
-    let id = req.params.id;
-    List.findById(id, (err, list) => {
-        res.json(list);
-    })
-});
-
-//Edit single product
-userRouter.post('/update/:id', function(req, res){
-    List.findById(req.params.id, function(err, list){
-        if(!list)
-            res.status(500).json({message : {msgBody : "Error, item not added", msgError: true}});
-        else
-            list.name = req.body.name;
-            list.quantity = req.body.quantity;
-            list.user = req.body.user;
-
-            list.save().then(list => {
-                res.json("Item updated");
-            })
-            .catch(err => {
-                res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
-            })
-    })
-});
-
-//Delete button route
-
 //Authentication
 userRouter.get('/authenticated',passport.authenticate('jwt',{session : false}), (req, res) => {
     const {username} = req.user;
     res.status(200).json({isAuthenticated : true, user : {username}});
+});
+
+//Shopping list routes = CRUD functions
+userRouter.post('/fruitvegItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const fruitveg = new FruitVegItem(req.body);
+    fruitveg.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.fruitvegItems.push(fruitveg);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/fruitvegList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('fruitvegItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({fruitvegItems : document.fruitvegItems, authenticated : true});
+        }
+    });
 });
 
 module.exports = userRouter;

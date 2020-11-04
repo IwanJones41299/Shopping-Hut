@@ -1,33 +1,33 @@
 import React, { useState, useContext, useEffect } from "react";
-import ListItem from "./listItem";
+import FruitVegItem from "./fruit_vegItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
 
-const Items = (props) => {
-  const [list, setList] = useState({
+const FruitVegItems = (props) => {
+  const [fruitveg, setfruitveg] = useState({
     name: "",
     quantity: Number,
     user: "",
   });
-  const [lists, setLists] = useState([]);
+  const [fruitvegItems, setfruitvegItems] = useState([]);
   const [message, setMessage] = useState(null);
   const authcontext = useContext(AuthContext);
 
   useEffect(() => {
     ListService.getItems().then((data) => {
-      setLists(data.lists);
+      setfruitvegItems(data.fruitvegItems);
     });
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    ListService.postItem(list).then((data) => {
+    ListService.postItem(fruitveg).then((data) => {
       const { message } = data;
       resetForm();
       if (!message.msgError) {
         ListService.getItems().then((getData) => {
-          setLists(getData.lists);
+          setfruitvegItems(getData.fruitvegItems);
         });
       }
       //JWT token expired if this else if runs
@@ -46,14 +46,14 @@ const Items = (props) => {
   };
 
   const onChange = (e) => {
-    setList({
-      ...list,
+    setfruitveg({
+      ...fruitveg,
       [e.target.name]: e.target.value,
     });
   };
 
   const resetForm = () => {
-    setList({
+    setfruitveg({
       name: "",
       quantity: "",
       user: "",
@@ -68,50 +68,51 @@ const Items = (props) => {
           <input
             type="text"
             name="name"
-            value={list.name}
+            value={fruitveg.name}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter an item"
+            required
           />
           <input
             type="text"
             name="quantity"
-            value={list.quantity}
+            value={fruitveg.quantity}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter the amount you want..."
+            required
           />
           <input
             type="text"
             name="user"
-            value={list.user}
+            value={fruitveg.user}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Who has added this product..."
+            required
           />
           <button className="btn btn-primary btn-block btn-add" type="submit">
-            Add{" "}
-          </button>{" "}
-        </form>{" "}
-        {message ? <Message message={message} /> : null}{" "}
-      </div>{" "}
+            Add
+          </button>
+        </form>
+        {message ? <Message message={message} /> : null}
+      </div>
       <table class="table table-borderless">
         <thead class="thead-primary">
           <tr>
             <th scope="col"> Product </th> <th scope="col"> Quantity </th>{" "}
             <th scope="col"> User </th> <th scope="col"> Edit / Delete </th>{" "}
-          </tr>{" "}
-        </thead>{" "}
+          </tr>
+        </thead>
         <tbody>
-          {" "}
-          {lists.map((list) => {
-            return <ListItem key={list._id} list={list} />;
-          })}{" "}
-        </tbody>{" "}
+            {fruitvegItems && fruitvegItems.map((fruitveg) => {
+              return <FruitVegItem key={fruitveg._id} fruitveg={fruitveg} />;
+            })}
+        </tbody>
       </table>
-      ;{" "}
     </div>
   );
 };
 
-export default Items;
+export default FruitVegItems;

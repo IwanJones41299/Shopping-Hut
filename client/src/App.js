@@ -12,8 +12,6 @@ import search from './Components/search.jsx';
 import contactForm from './Components/contactForm.jsx';
 import fruit_veg from './Components/Lists/fruit_veg.jsx';
 import fruit_vegUpdate from './Components/Lists/fruit_vegUpdate.jsx';
-import fresh_food from './Components/Lists/fresh_food.jsx';
-import fresh_foodUpdate from './Components/Lists/fresh_foodUpdate.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
@@ -35,9 +33,7 @@ function App() {
         {/* Lists */}
         <Route path="/fruit_veg" component={fruit_veg}/>
         <Route path={"/fv/edit/"} component={fruit_vegUpdate}/>
-
-        <Route path="/fresh_food" component={fresh_food}/>
-        <Route path={"/ff/edit/"} component={fresh_foodUpdate}/>
+        
       </Router>
   );
 }
