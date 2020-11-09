@@ -8,6 +8,8 @@ const sendgridTransport = require('nodemailer-sendgrid-transport');
 const JWT = require('jsonwebtoken');
 const User = require('../models/userModel');
 const FruitVegItem = require('../models/fruitVeg');
+const FreshFoodItem = require('../models/freshFood');
+const FrozenFoodItem = require('../models/frozen_food');
 
 const signtoken = userID => {
     return JWT.sign({
@@ -138,5 +140,60 @@ userRouter.get('/fruitvegList',passport.authenticate('jwt',{session : false}),(r
         }
     });
 });
+
+userRouter.post('/freshfoodItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const freshfood = new FreshFoodItem(req.body);
+    freshfood.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.freshfoodItems.push(freshfood);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/freshfoodList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('freshfoodItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({freshfoodItems : document.freshfoodItems, authenticated : true});
+        }
+    });
+});
+
+userRouter.post('/frozenfoodItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const frozenfood = new FrozenFoodItem(req.body);
+    frozenfood.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.frozenfoodItems.push(frozenfood);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/frozenfoodList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('frozenfoodItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({frozenfoodItems : document.frozenfoodItems, authenticated : true});
+        }
+    });
+});
+
 
 module.exports = userRouter;

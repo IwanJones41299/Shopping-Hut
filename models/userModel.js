@@ -27,7 +27,9 @@ const UserSchema = new mongoose.Schema({
     },
     resetToken : String, 
     expireToken : Date,
-    fruitvegItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FruitVegItem'}]
+    fruitvegItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FruitVegItem'}],
+    freshfoodItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FreshFoodItem'}],
+    frozenfoodItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FrozenFoodItem'}],
 });
 
 UserSchema.pre('save', function(next){

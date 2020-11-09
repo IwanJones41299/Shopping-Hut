@@ -1,33 +1,33 @@
 import React, { useState, useContext, useEffect } from "react";
-import FruitVegItem from "./fruit_vegItem";
+import FreshFoodItem from "./fresh_foodItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
 
-const FruitVegItems = (props) => {
-  const [fruitveg, setfruitveg] = useState({
+const FreshFoodItems = (props) => {
+  const [freshfood, setfreshfood] = useState({
     name: "",
     quantity: Number,
     user: "",
   });
-  const [fruitvegItems, setfruitvegItems] = useState([]);
+  const [freshfoodItems, setfreshfoodItems] = useState([]);
   const [message, setMessage] = useState(null);
   const authcontext = useContext(AuthContext);
 
   useEffect(() => {
-    ListService.getFruitVeg().then((data) => {
-      setfruitvegItems(data.fruitvegItems);
+    ListService.getFreshFood().then((data) => {
+        setfreshfoodItems(data.freshfoodItems);
     });
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    ListService.postFruitVeg(fruitveg).then((data) => {
+    ListService.postFreshFood(freshfood).then((data) => {
       const { message } = data;
       resetForm();
       if (!message.msgError) {
-        ListService.getFruitVeg().then((getData) => {
-          setfruitvegItems(getData.fruitvegItems);
+        ListService.getFreshFood().then((getData) => {
+          setfreshfoodItems(getData.freshfoodItems);
         });
       }
       //JWT token expired if this else if runs
@@ -46,14 +46,14 @@ const FruitVegItems = (props) => {
   };
 
   const onChange = (e) => {
-    setfruitveg({
-      ...fruitveg,
+    setfreshfood({
+      ...freshfood,
       [e.target.name]: e.target.value,
     });
   };
 
   const resetForm = () => {
-    setfruitveg({
+    setfreshfood({
       name: "",
       quantity: "",
       user: "",
@@ -62,13 +62,13 @@ const FruitVegItems = (props) => {
 
   return (
     <div>
-      <h3 className="text-center" style={{color: "white"}}>Fruit & Veg</h3>
+      <h3 className="text-center" style={{color: "white"}}>Fresh Food</h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="name"
-            value={fruitveg.name}
+            value={freshfood.name}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter an item"
@@ -77,7 +77,7 @@ const FruitVegItems = (props) => {
           <input
             type="text"
             name="quantity"
-            value={fruitveg.quantity}
+            value={freshfood.quantity}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter the amount you want..."
@@ -86,7 +86,7 @@ const FruitVegItems = (props) => {
           <input
             type="text"
             name="user"
-            value={fruitveg.user}
+            value={freshfood.user}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Who has added this product..."
@@ -106,8 +106,8 @@ const FruitVegItems = (props) => {
           </tr>
         </thead>
         <tbody>
-            {fruitvegItems && fruitvegItems.map((fruitveg) => {
-              return <FruitVegItem key={fruitveg._id} fruitveg={fruitveg} />;
+            {freshfoodItems && freshfoodItems.map((freshfood) => {
+              return <FreshFoodItem key={freshfood._id} freshfood={freshfood} />;
             })}
         </tbody>
       </table>
@@ -115,4 +115,4 @@ const FruitVegItems = (props) => {
   );
 };
 
-export default FruitVegItems;
+export default FreshFoodItems;
