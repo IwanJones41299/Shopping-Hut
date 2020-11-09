@@ -62,7 +62,7 @@ const FrozenFoodItems = (props) => {
 
   return (
     <div>
-      <h3 className="text-center" style={{color: "white"}}>Fresh Food</h3>
+      <h3 className="text-center" style={{color: "white"}}>Frozen Food</h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input
