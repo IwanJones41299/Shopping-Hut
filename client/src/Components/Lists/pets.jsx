@@ -1,33 +1,33 @@
 import React, { useState, useContext, useEffect } from "react";
-import Item from "./fresh_foodItem";
+import Item from "./petsItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
 
-const FreshFoodItems = (props) => {
-  const [freshfood, setfreshfood] = useState({
+const PetItems = (props) => {
+  const [pet, setpet] = useState({
     name: "",
     quantity: Number,
     user: "",
   });
-  const [freshfoodItems, setfreshfoodItems] = useState([]);
+  const [petItems, setpetItems] = useState([]);
   const [message, setMessage] = useState(null);
   const authcontext = useContext(AuthContext);
 
   useEffect(() => {
-    ListService.getFreshFood().then((data) => {
-        setfreshfoodItems(data.freshfoodItems);
+    ListService.getPets().then((data) => {
+        setpetItems(data.petItems);
     });
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    ListService.postFreshFood(freshfood).then((data) => {
+    ListService.postPets(pet).then((data) => {
       const { message } = data;
       resetForm();
       if (!message.msgError) {
-        ListService.getFreshFood().then((getData) => {
-          setfreshfoodItems(getData.freshfoodItems);
+        ListService.getPets().then((getData) => {
+            setpetItems(getData.petItems);
         });
       }
       //JWT token expired if this else if runs
@@ -46,14 +46,14 @@ const FreshFoodItems = (props) => {
   };
 
   const onChange = (e) => {
-    setfreshfood({
-      ...freshfood,
+    setpet({
+      ...pet,
       [e.target.name]: e.target.value,
     });
   };
 
   const resetForm = () => {
-    setfreshfood({
+    setpet({
       name: "",
       quantity: "",
       user: "",
@@ -68,7 +68,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="name"
-            value={freshfood.name}
+            value={pet.name}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter an item"
@@ -77,7 +77,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="quantity"
-            value={freshfood.quantity}
+            value={pet.quantity}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter the amount you want..."
@@ -86,7 +86,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="user"
-            value={freshfood.user}
+            value={pet.user}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Who has added this product..."
@@ -106,8 +106,8 @@ const FreshFoodItems = (props) => {
           </tr>
         </thead>
         <tbody>
-            {freshfoodItems && freshfoodItems.map((freshfood) => {
-              return <Item key={freshfood._id} freshfood={freshfood} />;
+            {petItems && petItems.map((pet) => {
+              return <Item key={pet._id} pet={pet} />;
             })}
         </tbody>
       </table>
@@ -115,4 +115,4 @@ const FreshFoodItems = (props) => {
   );
 };
 
-export default FreshFoodItems;
+export default PetItems;

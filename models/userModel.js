@@ -30,6 +30,11 @@ const UserSchema = new mongoose.Schema({
     fruitvegItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FruitVegItem'}],
     freshfoodItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FreshFoodItem'}],
     frozenfoodItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'FrozenFoodItem'}],
+    bakeryItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'BakeryItem'}],
+    driedfoodItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'DriedFoodItem'}],
+    drinksconfectionaryItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'DrinksConfectionaryItem'}],
+    toiletriescleaningItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'ToiletriesCleaningItem'}],
+    petItems : [{type : mongoose.Schema.Types.ObjectId, ref : 'PetItem'}]
 });
 
 UserSchema.pre('save', function(next){

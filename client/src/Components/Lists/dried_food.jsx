@@ -1,33 +1,33 @@
 import React, { useState, useContext, useEffect } from "react";
-import Item from "./fresh_foodItem";
+import Item from "./dried_foodItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
 
-const FreshFoodItems = (props) => {
-  const [freshfood, setfreshfood] = useState({
+const DriedFoodItems = (props) => {
+  const [driedfood, setdriedfood] = useState({
     name: "",
     quantity: Number,
     user: "",
   });
-  const [freshfoodItems, setfreshfoodItems] = useState([]);
+  const [driedfoodItems, setdriedfoodItems] = useState([]);
   const [message, setMessage] = useState(null);
   const authcontext = useContext(AuthContext);
 
   useEffect(() => {
-    ListService.getFreshFood().then((data) => {
-        setfreshfoodItems(data.freshfoodItems);
+    ListService.getDriedFood().then((data) => {
+        setdriedfoodItems(data.driedfoodItems);
     });
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    ListService.postFreshFood(freshfood).then((data) => {
+    ListService.postDriedFood(driedfood).then((data) => {
       const { message } = data;
       resetForm();
       if (!message.msgError) {
-        ListService.getFreshFood().then((getData) => {
-          setfreshfoodItems(getData.freshfoodItems);
+        ListService.getDriedFood().then((getData) => {
+            setdriedfoodItems(getData.driedfoodItems);
         });
       }
       //JWT token expired if this else if runs
@@ -46,14 +46,14 @@ const FreshFoodItems = (props) => {
   };
 
   const onChange = (e) => {
-    setfreshfood({
-      ...freshfood,
+    setdriedfood({
+      ...driedfood,
       [e.target.name]: e.target.value,
     });
   };
 
   const resetForm = () => {
-    setfreshfood({
+    setdriedfood({
       name: "",
       quantity: "",
       user: "",
@@ -68,7 +68,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="name"
-            value={freshfood.name}
+            value={driedfood.name}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter an item"
@@ -77,7 +77,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="quantity"
-            value={freshfood.quantity}
+            value={driedfood.quantity}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter the amount you want..."
@@ -86,7 +86,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="user"
-            value={freshfood.user}
+            value={driedfood.user}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Who has added this product..."
@@ -106,8 +106,8 @@ const FreshFoodItems = (props) => {
           </tr>
         </thead>
         <tbody>
-            {freshfoodItems && freshfoodItems.map((freshfood) => {
-              return <Item key={freshfood._id} freshfood={freshfood} />;
+            {driedfoodItems && driedfoodItems.map((driedfood) => {
+              return <Item key={driedfood._id} driedfood={driedfood} />;
             })}
         </tbody>
       </table>
@@ -115,4 +115,4 @@ const FreshFoodItems = (props) => {
   );
 };
 
-export default FreshFoodItems;
+export default DriedFoodItems;

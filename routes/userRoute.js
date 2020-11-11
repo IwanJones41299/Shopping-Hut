@@ -9,7 +9,12 @@ const JWT = require('jsonwebtoken');
 const User = require('../models/userModel');
 const FruitVegItem = require('../models/fruitVeg');
 const FreshFoodItem = require('../models/freshFood');
-const FrozenFoodItem = require('../models/frozen_food');
+const FrozenFoodItem = require('../models/frozenFood');
+const BakeryItem = require('../models/bakery');
+const DriedFoodItem = require('../models/driedFood');
+const DrinksConfectionaryItem = require('../models/drinksConfectonary');
+const ToiletriesCleaningItem = require('../models/toiletriesCleaning');
+const PetItem = require('../models/pets');
 
 const signtoken = userID => {
     return JWT.sign({
@@ -194,6 +199,145 @@ userRouter.get('/frozenfoodList',passport.authenticate('jwt',{session : false}),
         }
     });
 });
+
+userRouter.post('/bakeryItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const bakery = new BakeryItem(req.body);
+    bakery.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.bakeryItems.push(bakery);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/bakeryList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('bakeryItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({bakeryItems : document.bakeryItems, authenticated : true});
+        }
+    });
+});
+
+userRouter.post('/driedfoodItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const driedfood = new DriedFoodItem(req.body);
+    driedfood.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.driedfoodItems.push(driedfood);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/driedfoodList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('driedfoodItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({driedfoodItems : document.driedfoodItems, authenticated : true});
+        }
+    });
+});
+
+userRouter.post('/drinksconfectionaryItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const drinksconfectionary = new DrinksConfectionaryItem(req.body);
+    drinksconfectionary.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.drinksconfectionaryItems.push(drinksconfectionary);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/drinksconfectionaryList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('drinksconfectionaryItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({drinksconfectionaryItems : document.drinksconfectionaryItems, authenticated : true});
+        }
+    });
+});
+
+
+userRouter.post('/toiletriescleaningItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const toiletriescleaning = new ToiletriesCleaningItem(req.body);
+    toiletriescleaning.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.toiletriescleaningItems.push(toiletriescleaning);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/toiletriescleaningList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('toiletriescleaningItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({toiletriescleaningItems : document.toiletriescleaningItems, authenticated : true});
+        }
+    });
+});
+
+
+userRouter.post('/petItems',passport.authenticate('jwt',{session : false}),(req,res) => {
+    const pet = new PetItem(req.body);
+    pet.save(err => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else{
+            req.user.petItems.push(pet);
+            req.user.save(err => {
+                if(err)
+                    res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+                else
+                    res.status(200).json({message : {msgBody: "Item added sucessfully", msgError: false}});
+            });
+        }
+    });
+});
+
+userRouter.get('/petList',passport.authenticate('jwt',{session : false}),(req,res) => {
+    User.findById({_id : req.user._id}).populate('petItems').exec((err, document) => {
+        if(err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else {
+            res.status(200).json({petItems : document.petItems, authenticated : true});
+        }
+    });
+});
+
+
 
 
 module.exports = userRouter;

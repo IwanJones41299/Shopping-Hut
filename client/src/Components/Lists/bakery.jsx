@@ -1,33 +1,33 @@
 import React, { useState, useContext, useEffect } from "react";
-import Item from "./fresh_foodItem";
+import Item from "./bakeryItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
 
-const FreshFoodItems = (props) => {
-  const [freshfood, setfreshfood] = useState({
+const BakeryItems = (props) => {
+  const [bakery, setbakery] = useState({
     name: "",
     quantity: Number,
     user: "",
   });
-  const [freshfoodItems, setfreshfoodItems] = useState([]);
+  const [bakeryItems, setbakeryItems] = useState([]);
   const [message, setMessage] = useState(null);
   const authcontext = useContext(AuthContext);
 
   useEffect(() => {
-    ListService.getFreshFood().then((data) => {
-        setfreshfoodItems(data.freshfoodItems);
+    ListService.getBakery().then((data) => {
+        setbakeryItems(data.bakeryItems);
     });
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    ListService.postFreshFood(freshfood).then((data) => {
+    ListService.postBakery(bakery).then((data) => {
       const { message } = data;
       resetForm();
       if (!message.msgError) {
-        ListService.getFreshFood().then((getData) => {
-          setfreshfoodItems(getData.freshfoodItems);
+        ListService.getBakery().then((getData) => {
+            setbakeryItems(getData.bakeryItems);
         });
       }
       //JWT token expired if this else if runs
@@ -46,14 +46,14 @@ const FreshFoodItems = (props) => {
   };
 
   const onChange = (e) => {
-    setfreshfood({
-      ...freshfood,
+    setbakery({
+      ...bakery,
       [e.target.name]: e.target.value,
     });
   };
 
   const resetForm = () => {
-    setfreshfood({
+    setbakery({
       name: "",
       quantity: "",
       user: "",
@@ -62,13 +62,13 @@ const FreshFoodItems = (props) => {
 
   return (
     <div>
-      <h3 className="text-center" style={{color: "white"}}>Fresh Food</h3>
+      <h3 className="text-center" style={{color: "white"}}>Bakery</h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="name"
-            value={freshfood.name}
+            value={bakery.name}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter an item"
@@ -77,7 +77,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="quantity"
-            value={freshfood.quantity}
+            value={bakery.quantity}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter the amount you want..."
@@ -86,7 +86,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="user"
-            value={freshfood.user}
+            value={bakery.user}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Who has added this product..."
@@ -106,8 +106,8 @@ const FreshFoodItems = (props) => {
           </tr>
         </thead>
         <tbody>
-            {freshfoodItems && freshfoodItems.map((freshfood) => {
-              return <Item key={freshfood._id} freshfood={freshfood} />;
+            {bakeryItems && bakeryItems.map((bakery) => {
+              return <Item key={bakery._id} bakery={bakery} />;
             })}
         </tbody>
       </table>
@@ -115,4 +115,4 @@ const FreshFoodItems = (props) => {
   );
 };
 
-export default FreshFoodItems;
+export default BakeryItems;

@@ -1,33 +1,33 @@
 import React, { useState, useContext, useEffect } from "react";
-import Item from "./fresh_foodItem";
+import Item from "./toiletries_cleaningItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
 
-const FreshFoodItems = (props) => {
-  const [freshfood, setfreshfood] = useState({
+const ToiletriesCleaningItems = (props) => {
+  const [toiletriescleaning, settoiletriescleaning] = useState({
     name: "",
     quantity: Number,
     user: "",
   });
-  const [freshfoodItems, setfreshfoodItems] = useState([]);
+  const [toiletriescleaningItems, settoiletriescleaningItems] = useState([]);
   const [message, setMessage] = useState(null);
   const authcontext = useContext(AuthContext);
 
   useEffect(() => {
-    ListService.getFreshFood().then((data) => {
-        setfreshfoodItems(data.freshfoodItems);
+    ListService.getHouseHold().then((data) => {
+        settoiletriescleaningItems(data.toiletriescleaningItems);
     });
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    ListService.postFreshFood(freshfood).then((data) => {
+    ListService.postHouseHold(toiletriescleaning).then((data) => {
       const { message } = data;
       resetForm();
       if (!message.msgError) {
-        ListService.getFreshFood().then((getData) => {
-          setfreshfoodItems(getData.freshfoodItems);
+        ListService.getHouseHold().then((getData) => {
+            settoiletriescleaningItems(getData.toiletriescleaningItems);
         });
       }
       //JWT token expired if this else if runs
@@ -46,14 +46,14 @@ const FreshFoodItems = (props) => {
   };
 
   const onChange = (e) => {
-    setfreshfood({
-      ...freshfood,
+    settoiletriescleaning({
+      ...toiletriescleaning,
       [e.target.name]: e.target.value,
     });
   };
 
   const resetForm = () => {
-    setfreshfood({
+    settoiletriescleaning({
       name: "",
       quantity: "",
       user: "",
@@ -68,7 +68,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="name"
-            value={freshfood.name}
+            value={toiletriescleaning.name}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter an item"
@@ -77,7 +77,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="quantity"
-            value={freshfood.quantity}
+            value={toiletriescleaning.quantity}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Please enter the amount you want..."
@@ -86,7 +86,7 @@ const FreshFoodItems = (props) => {
           <input
             type="text"
             name="user"
-            value={freshfood.user}
+            value={toiletriescleaning.user}
             onChange={onChange}
             className="form-control product_input"
             placeholder="Who has added this product..."
@@ -106,8 +106,8 @@ const FreshFoodItems = (props) => {
           </tr>
         </thead>
         <tbody>
-            {freshfoodItems && freshfoodItems.map((freshfood) => {
-              return <Item key={freshfood._id} freshfood={freshfood} />;
+            {toiletriescleaningItems && toiletriescleaningItems.map((toiletriescleaning) => {
+              return <Item key={toiletriescleaning._id} toiletriescleaning={toiletriescleaning} />;
             })}
         </tbody>
       </table>
@@ -115,4 +115,4 @@ const FreshFoodItems = (props) => {
   );
 };
 
-export default FreshFoodItems;
+export default ToiletriesCleaningItems;

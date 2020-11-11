@@ -16,7 +16,7 @@ const FrozenFoodItems = (props) => {
 
   useEffect(() => {
     ListService.getFrozenFood().then((data) => {
-        setfrozenfoodItems(data.frozenfoodItems);
+      setfrozenfoodItems(data.frozenfoodItems);
     });
   }, []);
 
@@ -27,7 +27,7 @@ const FrozenFoodItems = (props) => {
       resetForm();
       if (!message.msgError) {
         ListService.getFrozenFood().then((getData) => {
-          setfrozenfoodItems(getData.freshfoodItems);
+          setfrozenfoodItems(getData.frozenfoodItems);
         });
       }
       //JWT token expired if this else if runs
