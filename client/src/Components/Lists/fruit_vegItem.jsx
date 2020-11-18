@@ -1,16 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const fruit_vegItem = (props) => {
+  
+  const deleteItem = (id) => {
+    axios.delete(`/user/fruitvegDelete/${id}`)
+  };
+
   return (
     <>
       <tr className="product_results">
         <td className="#">{props.fruitveg.name}</td>
         <td className="#">{props.fruitveg.quantity}</td>
         <td className="#">{props.fruitveg.user}</td>
-        <Link to={"/fruit_veg/edit/"+props.fruitveg._id}>
-          <td className="btn btn-sm btn-primary crud-btn">Edit/Delete</td>
-        </Link>
+        <button className="btn btn-sm btn-primary crud-btn" onClick={deleteItem}>Delete</button>
       </tr>
     </>
   );

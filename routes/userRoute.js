@@ -15,6 +15,7 @@ const DriedFoodItem = require('../models/driedFood');
 const DrinksConfectionaryItem = require('../models/drinksConfectonary');
 const ToiletriesCleaningItem = require('../models/toiletriesCleaning');
 const PetItem = require('../models/pets');
+const fruitVeg = require('../models/fruitVeg');
 
 const signtoken = userID => {
     return JWT.sign({
@@ -145,6 +146,22 @@ userRouter.get('/fruitvegList',passport.authenticate('jwt',{session : false}),(r
         }
     });
 });
+
+userRouter.delete('/fruitvegDelete/:id', (req, res, next) => {
+    fruitVeg.findByIdAndRemove({_id: req.params.id}).then(
+      () => {
+        res.status(200).json({
+          message: 'Item Deleted'
+        });
+      }
+    ).catch(
+      (error) => {
+        res.status(400).json({
+          error: error
+        });
+      }
+    );
+  });
 
 userRouter.post('/freshfoodItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const freshfood = new FreshFoodItem(req.body);
