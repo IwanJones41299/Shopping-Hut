@@ -147,21 +147,14 @@ userRouter.get('/fruitvegList',passport.authenticate('jwt',{session : false}),(r
     });
 });
 
-userRouter.delete('/fruitvegDelete/:id', (req, res, next) => {
-    fruitVeg.findByIdAndRemove({_id: req.params.id}).then(
-      () => {
-        res.status(200).json({
-          message: 'Item Deleted'
-        });
-      }
-    ).catch(
-      (error) => {
-        res.status(400).json({
-          error: error
-        });
-      }
-    );
-  });
+//Delete route for fruit and veg
+userRouter.route('/deleteFruitVeg/:id').get(function (req, res) {
+    FruitVegItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
+    });
+});
+
 
 userRouter.post('/freshfoodItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const freshfood = new FreshFoodItem(req.body);
