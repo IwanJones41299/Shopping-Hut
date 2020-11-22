@@ -4,7 +4,13 @@ import axios from 'axios';
 const fruit_vegItem = (props) => {
   
   const deleteItem = (id) => {
-    axios.delete(`/user/fruitvegDelete/${id}`)
+    axios.get('/user/deleteFruitVeg/'+ props.fruitveg._id)
+    .then((res) => {
+      console.log('item deleted');
+      window.location.reload();
+    }).catch((error) => {
+      console.log(error)
+    })
   };
 
   return (
