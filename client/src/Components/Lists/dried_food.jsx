@@ -3,6 +3,7 @@ import Item from "./dried_foodItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const DriedFoodItems = (props) => {
   const [driedfood, setdriedfood] = useState({
@@ -62,7 +63,7 @@ const DriedFoodItems = (props) => {
 
   return (
     <div>
-      <h3 className="text-center" style={{color: "white"}}>Fresh Food</h3>
+      <h3 className="text-center" style={{color: "white"}}>Dried Food</h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input
@@ -111,6 +112,7 @@ const DriedFoodItems = (props) => {
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import Item from "./drinks_confectionaryItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const DrinksConfectionaryItems = (props) => {
   const [drinksconfectionary, setdrinksconfectionary] = useState({
@@ -111,6 +112,7 @@ const DrinksConfectionaryItems = (props) => {
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

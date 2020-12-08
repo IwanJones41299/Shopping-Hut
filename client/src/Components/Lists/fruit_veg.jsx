@@ -3,6 +3,7 @@ import FruitVegItem from "./fruit_vegItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const FruitVegItems = (props) => {
   const [fruitveg, setfruitveg] = useState({
@@ -111,6 +112,7 @@ const FruitVegItems = (props) => {
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

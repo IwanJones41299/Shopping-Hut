@@ -1,16 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const toiletries_cleaningItem = (props) => {
+
+  const deleteItem = (id) => {
+    axios.get('/user/deletetoiletriescleaning/'+ props.toiletriescleaning._id)
+    .then((res) => {
+      console.log('item deleted');
+      window.location.reload();
+    }).catch((error) => {
+      console.log(error)
+    })
+  };
+
   return (
     <>
       <tr className="product_results">
-        <td className="#">{props.toiletriescleaning.name}</td>
-        <td className="#">{props.toiletriescleaning.quantity}</td>
-        <td className="#">{props.toiletriescleaning.user}</td>
-        <Link to={"/ff/edit/"+props.toiletriescleaning._id}>
-          <td className="btn btn-sm btn-primary crud-btn">Edit/Delete</td>
-        </Link>
+        <td className="itemFont">{props.toiletriescleaning.name}</td>
+        <td className="itemFont">{props.toiletriescleaning.quantity}</td>
+        <td className="itemFont">{props.toiletriescleaning.user}</td>
+        <button className="btn btn-sm btn-primary crud-btn" onClick={deleteItem}>Delete</button>
       </tr>
     </>
   );

@@ -3,6 +3,7 @@ import Item from "./fresh_foodItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const FreshFoodItems = (props) => {
   const [freshfood, setfreshfood] = useState({
@@ -16,7 +17,7 @@ const FreshFoodItems = (props) => {
 
   useEffect(() => {
     ListService.getFreshFood().then((data) => {
-        setfreshfoodItems(data.freshfoodItems);
+      setfreshfoodItems(data.freshfoodItems);
     });
   }, []);
 
@@ -62,7 +63,9 @@ const FreshFoodItems = (props) => {
 
   return (
     <div>
-      <h3 className="text-center" style={{color: "white"}}>Fresh Food</h3>
+      <h3 className="text-center" style={{ color: "white" }}>
+        Fresh Food
+      </h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input
@@ -98,7 +101,7 @@ const FreshFoodItems = (props) => {
         </form>
         {message ? <Message message={message} /> : null}
       </div>
-      <table class="table table-borderless">
+      <table class="table table-borderless container-fluid">
         <thead class="thead-primary">
           <tr>
             <th scope="col"> Product </th> <th scope="col"> Quantity </th>{" "}
@@ -106,11 +109,13 @@ const FreshFoodItems = (props) => {
           </tr>
         </thead>
         <tbody>
-            {freshfoodItems && freshfoodItems.map((freshfood) => {
+          {freshfoodItems &&
+            freshfoodItems.map((freshfood) => {
               return <Item key={freshfood._id} freshfood={freshfood} />;
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

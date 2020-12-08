@@ -3,6 +3,7 @@ import Item from "./petsItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const PetItems = (props) => {
   const [pet, setpet] = useState({
@@ -62,7 +63,7 @@ const PetItems = (props) => {
 
   return (
     <div>
-      <h3 className="text-center" style={{color: "white"}}>Fresh Food</h3>
+      <h3 className="text-center" style={{color: "white"}}>Pet</h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input
@@ -111,6 +112,7 @@ const PetItems = (props) => {
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

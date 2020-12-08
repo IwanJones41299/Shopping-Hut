@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DashNav from './dashNav';
 
 const listMenu = (props) => {
   return (
@@ -34,19 +35,7 @@ const listMenu = (props) => {
       </div>
 
       {/* User navbar */}
-      <nav className="navbar navbar-dark bottomNav">
-        <ul className="navbar-nav mr-auto dashNav">
-          <Link to="/dashboard">
-            <li className="nav-item nav-link dash-item">Dashboard</li>
-          </Link>
-          <Link to="/listMenu">
-            <li className="nav-item nav-link dash-item">List</li>
-          </Link>
-          <Link to="/search">
-            <li className="nav-item nav-link dash-item">Search</li>
-          </Link>
-        </ul>
-      </nav>
+      <DashNav />
     </div>
   );
 };

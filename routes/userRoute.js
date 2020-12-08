@@ -15,7 +15,6 @@ const DriedFoodItem = require('../models/driedFood');
 const DrinksConfectionaryItem = require('../models/drinksConfectonary');
 const ToiletriesCleaningItem = require('../models/toiletriesCleaning');
 const PetItem = require('../models/pets');
-const fruitVeg = require('../models/fruitVeg');
 
 const signtoken = userID => {
     return JWT.sign({
@@ -147,7 +146,6 @@ userRouter.get('/fruitvegList',passport.authenticate('jwt',{session : false}),(r
     });
 });
 
-//Delete route for fruit and veg
 userRouter.route('/deleteFruitVeg/:id').get(function (req, res) {
     FruitVegItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
         if(err) res.json(err)
@@ -183,6 +181,13 @@ userRouter.get('/freshfoodList',passport.authenticate('jwt',{session : false}),(
     });
 });
 
+userRouter.route('/deleteFreshFood/:id').get(function (req, res) {
+    FreshFoodItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
+    });
+});
+
 userRouter.post('/frozenfoodItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const frozenfood = new FrozenFoodItem(req.body);
     frozenfood.save(err => {
@@ -200,6 +205,8 @@ userRouter.post('/frozenfoodItems',passport.authenticate('jwt',{session : false}
     });
 });
 
+
+
 userRouter.get('/frozenfoodList',passport.authenticate('jwt',{session : false}),(req,res) => {
     User.findById({_id : req.user._id}).populate('frozenfoodItems').exec((err, document) => {
         if(err)
@@ -209,6 +216,14 @@ userRouter.get('/frozenfoodList',passport.authenticate('jwt',{session : false}),
         }
     });
 });
+
+userRouter.route('/deleteFrozenFood/:id').get(function (req, res) {
+    FrozenFoodItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
+    });
+});
+
 
 userRouter.post('/bakeryItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const bakery = new BakeryItem(req.body);
@@ -227,6 +242,7 @@ userRouter.post('/bakeryItems',passport.authenticate('jwt',{session : false}),(r
     });
 });
 
+
 userRouter.get('/bakeryList',passport.authenticate('jwt',{session : false}),(req,res) => {
     User.findById({_id : req.user._id}).populate('bakeryItems').exec((err, document) => {
         if(err)
@@ -234,6 +250,13 @@ userRouter.get('/bakeryList',passport.authenticate('jwt',{session : false}),(req
         else {
             res.status(200).json({bakeryItems : document.bakeryItems, authenticated : true});
         }
+    });
+});
+
+userRouter.route('/deleteBakery/:id').get(function (req, res) {
+    BakeryItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
     });
 });
 
@@ -264,6 +287,13 @@ userRouter.get('/driedfoodList',passport.authenticate('jwt',{session : false}),(
     });
 });
 
+userRouter.route('/deleteDriedFoods/:id').get(function (req, res) {
+    DriedFoodItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
+    });
+});
+
 userRouter.post('/drinksconfectionaryItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const drinksconfectionary = new DrinksConfectionaryItem(req.body);
     drinksconfectionary.save(err => {
@@ -291,6 +321,12 @@ userRouter.get('/drinksconfectionaryList',passport.authenticate('jwt',{session :
     });
 });
 
+userRouter.route('/deleteDrinksConfectionary/:id').get(function (req, res) {
+    DrinksConfectionaryItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
+    });
+});
 
 userRouter.post('/toiletriescleaningItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const toiletriescleaning = new ToiletriesCleaningItem(req.body);
@@ -319,6 +355,12 @@ userRouter.get('/toiletriescleaningList',passport.authenticate('jwt',{session : 
     });
 });
 
+userRouter.route('/deletetoiletriescleaning/:id').get(function (req, res) {
+    ToiletriesCleaningItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
+    });
+});
 
 userRouter.post('/petItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const pet = new PetItem(req.body);
@@ -347,7 +389,11 @@ userRouter.get('/petList',passport.authenticate('jwt',{session : false}),(req,re
     });
 });
 
-
-
+userRouter.route('/deletePet/:id').get(function (req, res) {
+    PetItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {
+        if(err) res.json(err)
+        else res.json('Deleted');
+    });
+});
 
 module.exports = userRouter;

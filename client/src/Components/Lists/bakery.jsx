@@ -3,6 +3,7 @@ import Item from "./bakeryItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const BakeryItems = (props) => {
   const [bakery, setbakery] = useState({
@@ -111,6 +112,7 @@ const BakeryItems = (props) => {
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

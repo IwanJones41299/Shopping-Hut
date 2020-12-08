@@ -3,6 +3,7 @@ import FrozenFoodItem from "./frozen_foodItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const FrozenFoodItems = (props) => {
   const [frozenfood, setfrozenfood] = useState({
@@ -111,6 +112,7 @@ const FrozenFoodItems = (props) => {
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

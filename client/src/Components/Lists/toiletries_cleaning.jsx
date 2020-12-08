@@ -3,6 +3,7 @@ import Item from "./toiletries_cleaningItem";
 import ListService from "../../Services/ListService";
 import { AuthContext } from "../../Context/AuthContext";
 import Message from "../message";
+import DashNav from '../dashNav';
 
 const ToiletriesCleaningItems = (props) => {
   const [toiletriescleaning, settoiletriescleaning] = useState({
@@ -62,7 +63,7 @@ const ToiletriesCleaningItems = (props) => {
 
   return (
     <div>
-      <h3 className="text-center" style={{color: "white"}}>Fresh Food</h3>
+      <h3 className="text-center" style={{color: "white"}}>Toiletries & Household</h3>
       <div className="container-fluid">
         <form onSubmit={onSubmit}>
           <input
@@ -111,6 +112,7 @@ const ToiletriesCleaningItems = (props) => {
             })}
         </tbody>
       </table>
+      <DashNav />
     </div>
   );
 };

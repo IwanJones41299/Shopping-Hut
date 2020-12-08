@@ -16,9 +16,9 @@ const fruit_vegItem = (props) => {
   return (
     <>
       <tr className="product_results">
-        <td className="#">{props.fruitveg.name}</td>
-        <td className="#">{props.fruitveg.quantity}</td>
-        <td className="#">{props.fruitveg.user}</td>
+        <td className="itemFont">{props.fruitveg.name}</td>
+        <td className="itemFont">{props.fruitveg.quantity}</td>
+        <td className="itemFont">{props.fruitveg.user}</td>
         <button className="btn btn-sm btn-primary crud-btn" onClick={deleteItem}>Delete</button>
       </tr>
     </>
