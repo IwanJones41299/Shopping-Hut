@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PrivateRoute from './hocs/PrivateRoute';
 import Navbar from './Components/navbar.jsx';
 import Home from './Components/home.jsx';
 import Login from './Components/login.jsx';
@@ -32,30 +33,28 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/forgotPassword" component={ForgotPassword}/>
-        <Route path="/reset" component={ResetPassword}/>
-        <Route path="/dashboard" component={Dashboard}/>
-        <Route path="/listMenu" component={ListMenu}/>
-        <Route path="/search" component={search}/>
-        <Route path="/contact" component={contactForm}/>
+        <PrivateRoute path="/reset" accountRole={["Personal", "Family"]} component={ResetPassword}/>
+        <PrivateRoute path="/dashboard" accountRole={["Personal", "Family"]} component={Dashboard} />
+        <PrivateRoute path="/listMenu" accountRole={["Personal", "Family"]} component={ListMenu}/>
+        <PrivateRoute path="/search" accountRole={["Personal", "Family"]} component={search}/>
+        <PrivateRoute path="/contact" accountRole={["Personal", "Family"]} component={contactForm}/>
 
         {/* Lists */}
-        <Route path="/fruit_veg" component={fruit_veg}/>
+        <PrivateRoute path="/fruit_veg" accountRole={["Personal", "Family"]} component={fruit_veg}/>
 
-        <Route path="/fresh_food" component={fresh_food}/>
+        <PrivateRoute path="/fresh_food" accountRole={["Personal", "Family"]} component={fresh_food}/>
 
-        <Route path="/frozen_food" component={frozen_food}/>
+        <PrivateRoute path="/frozen_food" accountRole={["Personal", "Family"]} component={frozen_food}/>
 
-        <Route path="/bakery" component={bakery}/>
+        <PrivateRoute path="/bakery" accountRole={["Personal", "Family"]} component={bakery}/>
 
-        <Route path="/dried_goods" component={dried_food}/>
+        <PrivateRoute path="/dried_goods" accountRole={["Personal", "Family"]} component={dried_food}/>
 
-        <Route path="/drinks_confectonary" component={drinks_confectionary}/>
+        <PrivateRoute path="/drinks_confectonary" accountRole={["Personal", "Family"]} component={drinks_confectionary}/>
 
-        <Route path="/household" component={toiletries_cleaning}/>
+        <PrivateRoute path="/household" accountRole={["Personal", "Family"]} component={toiletries_cleaning}/>
 
-        <Route path="/pets" component={pets}/>
-        
-        
+        <PrivateRoute path="/pets" accountRole={["Personal", "Family"]} component={pets}/>
         
       </Router>
   );
