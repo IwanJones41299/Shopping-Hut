@@ -40,7 +40,6 @@ const Register = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(user); //for testing only
     AuthService.register(user).then((data) => {
       const { message } = data;
       setMessage(message);
@@ -148,7 +147,6 @@ const Register = (props) => {
             <div className="login-link">
               Already have an account?
               <a href="/login" className="reg-link">
-                {" "}
                 Login now
               </a>
             </div>

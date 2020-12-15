@@ -14,8 +14,6 @@ const Login = (props) => {
   const onChange = (e) => {
     e.preventDefault();
     setUser({ ...user, [e.target.name]: e.target.value });
-    //Delte following line, once testing is complete!
-    console.log(user);
   };
 
   const onSubmit = (e) => {
@@ -27,6 +25,7 @@ const Login = (props) => {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
         props.history.push("/dashboard");
+        setMessage(message);
       } else setMessage(message);
     });
   };

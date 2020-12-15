@@ -190,8 +190,12 @@ footer{
     font-weight: bold;
 }
 
-.pwd-reset{
+div.pwd-reset{
     color: white;
+}
+
+a.pwd-reset{
+    color: $logo !important;
 }
 
 .form-control{
@@ -238,7 +242,7 @@ footer{
 }
 
 .dash-item:hover,:link{
-    color:$primary !important;
+    color:$primary;
     text-decoration: none !important;
     border: none !important;
     font-weight: bold;

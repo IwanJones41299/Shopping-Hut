@@ -30,10 +30,8 @@ const Navbar = (props) => {
   const authenticatedNavbar = () => {
     return (
       <>
-        <Link to="/logout">
-          <button className="btn btn-warning" onClick={onClickLogoutHandler}>
-            Logout
-          </button>
+        <Link to="/">
+        <li className="nav-item nav-link" onClick={onClickLogoutHandler}>Logout</li>
         </Link>
       </>
     );
@@ -56,4 +54,3 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
-//{!isAuthenticated ? unauthenticatedNavbar() : authenticatedNavbar()}
