@@ -1,43 +1,46 @@
-const CACHE_NAME = "version-1";
-const urlsToCache = [ 'index.html', 'offline.html' ]; //Add the files I want to have the app use with the online functionality.
+const cacheName = "static-service_worker";
+const assets = [
+    'index.html',
+    'offline.html',
+]
 
 const self = this;
 
-//Installation
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
+//Install service worker
+self.addEventListener('install', (evt) => {
+    evt.waitUntil(
+        caches.open(cacheName)
+        .then((cache) => {
+            console.log('Opening cache');
+
+            return cache.addAll(assets);
+        })
     )
 });
 
-//Listen for request
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(() => {
-                return fetch(event.request)
-                    .catch(() => caches.match('offline.html'))
-            })
+//Listen for requests
+self.addEventListener('fetch', (evt) => {
+    evt.respondWith(
+        caches.match(evt.request)
+        .then(() => {
+            return fetch(evt.request)
+            .catch(() => caches.match('offline.html'))
+        })
     )
 });
 
-//Activate
-self.addEventListener('activate', (event) => {
-    const cacheWhitelist = [];
-    cacheWhitelist.push(CACHE_NAME);
+//Activate service worker
+self.addEventListener('activate', (evt) => {
+    const cacheWhiteList = [];
+    cacheWhiteList.push(cacheName);
 
-    event.waitUntil(
-        caches.keys()
-            .then((cacheNames) => Promise.all(
-                cacheNames.map((cacheName) => {
-                    if(!cacheWhitelist.includes(cacheName)) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            ))
+    evt.waitUntil(
+        caches.keys().then((cacheName) => Promise.all(
+            cacheName.map((cacheName) => {
+                if(!cacheWhiteList.includes(cacheName)) {
+                    return caches.delete(cacheName);
+                }
+            })
+        ))
     )
 });

@@ -76,7 +76,7 @@ const FruitVegItems = (props) => {
             required
           />
           <input
-            type="text"
+            type="number"
             name="quantity"
             value={fruitveg.quantity}
             onChange={onChange}
