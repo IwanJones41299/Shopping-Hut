@@ -2,6 +2,7 @@ const cacheName = "static-service_worker";
 const assets = [
     'index.html',
     'offline.html',
+    'images/logo.png'
 ]
 
 const self = this;

@@ -17,7 +17,6 @@ mongoose.connect(
     console.log("MongoDB connected to the server -- SH");
   }
 );
-
 const userRouter = require("./routes/userRoute");
 app.use("/user", userRouter);
 
