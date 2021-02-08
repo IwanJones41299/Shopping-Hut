@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.scss';
+
 import Navbar from './Components/navbar.jsx';
 import Home from './Components/home.jsx';
 import Login from './Components/login.jsx';
@@ -19,11 +22,6 @@ import dried_food from './Components/Lists/dried_food';
 import drinks_confectionary from './Components/Lists/drinks_confectionary';
 import toiletries_cleaning from './Components/Lists/toiletries_cleaning';
 import pets from './Components/Lists/pets';
-
-
-
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.scss';
 
 function App() {
   return (
