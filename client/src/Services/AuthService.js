@@ -1,39 +1,40 @@
 export default {
-  login: (user) => {
+  login: async (user) => {
     console.log(user);
-    return fetch("/user/login", {
+    const res = await fetch("/user/login", {
       method: "post",
       body: JSON.stringify(user),
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (res.status !== 401) 
-        return res.json().then((data) => data);
-      else 
-        return { isAuthenticated: false, user: { username: "" } };
     });
+    if (res.status !== 401)
+      return res.json().then((data) => data);
+
+    else
+      return { isAuthenticated: false, user: { username: "" } };
   },
-  register: (user) => {
-    return fetch("/user/register", {
+  register: async (user) => {
+    const res = await fetch("/user/register", {
       method: "post",
       body: JSON.stringify(user),
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((res) => res.json())
-      .then((data) => data);
-  },
-  logout: () => {
-    return fetch("/user/logout")
-      .then((res) => res.json())
-      .then((data) => data);
-  },
-  isAuthenticated: () => {
-    return fetch("/user/authenticated").then((res) => {
-      if (res.status !== 401) return res.json().then((data) => data)
-      else return { isAuthenticated: false, user: { username: "" } };
     });
+    const data = await res.json();
+    return data;
+  },
+  logout: async () => {
+    const res = await fetch("/user/logout");
+    const data = await res.json();
+    return data;
+  },
+  isAuthenticated: async () => {
+    const res = await fetch("/user/authenticated");
+    if (res.status == 200)
+      return res.json().then((data) => data);
+    else
+      return { isAuthenticated: false, user: { username: "" } };
   },
 };

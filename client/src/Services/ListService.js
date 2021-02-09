@@ -3,7 +3,7 @@ export default {
   getFruitVeg : () => {
     return fetch('/user/fruitvegList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -19,7 +19,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else
@@ -30,7 +30,7 @@ export default {
   getFreshFood : () => {
     return fetch('/user/freshfoodList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -46,7 +46,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else
@@ -57,7 +57,7 @@ export default {
   getFrozenFood : () => {
     return fetch('/user/frozenfoodList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -73,7 +73,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else
@@ -84,7 +84,7 @@ export default {
   getBakery : () => {
     return fetch('/user/bakeryList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -100,7 +100,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else
@@ -111,7 +111,7 @@ export default {
   getDriedFood : () => {
     return fetch('/user/driedfoodList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -127,7 +127,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else
@@ -138,7 +138,7 @@ export default {
   getDrinksConfectionary : () => {
     return fetch('/user/drinksconfectionaryList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -154,7 +154,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else
@@ -165,7 +165,7 @@ export default {
   getHouseHold : () => {
     return fetch('/user/toiletriescleaningList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -181,7 +181,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else
@@ -192,7 +192,7 @@ export default {
   getPets : () => {
     return fetch('/user/petList')
       .then(response => {
-        if(response.status != 401){
+        if(response.status !== 401){
           return response.json().then(data => data);
         }
         else
@@ -208,7 +208,7 @@ export default {
         'Content-Type' : 'application/json'
       }
     }).then(response => {
-      if(response.status != 401){
+      if(response.status !== 401){
         return response.json().then(data => data);
       }
       else

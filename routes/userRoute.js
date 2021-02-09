@@ -60,7 +60,7 @@ userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res
 });
 
 //Forgotten Password
-userRouter.post('/forgotPassword', (req, res) => {
+/* userRouter.post('/forgotPassword', (req, res) => {
     if(req.body.email === ''){
         res.status(400).send('emai required');
     }
@@ -110,12 +110,12 @@ userRouter.post('/forgotPassword', (req, res) => {
             });
         }
     });
-});
+}); */
 
 //Authentication
 userRouter.get('/authenticated', passport.authenticate('jwt',{session : false}), (req, res) => {
-    const {username} = req.user;
-    res.status(200).json({isAuthenticated : true, user : {username}});
+    const {username, accountRole} = req.user;
+    res.status(200).json({isAuthenticated : true, user : {username, accountRole}});
 });
 
 //Shopping list routes = CRUD functions

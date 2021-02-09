@@ -11,16 +11,6 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(express.json());
 
-//local mongodb connectiom
-/* mongoose.connect(
-  "mongodb://localhost:27017/shoppinghut_DB",
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-  () => {
-    console.log("MongoDB connected to the server -- SH");
-  }
-); */
-
-//mongodb atlas connection
 // Conect to Mongoose Server Atlas
 mongoose.connect(process.env.ATLAS_URI, {
   useCreateIndex: true,

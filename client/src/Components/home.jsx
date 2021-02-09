@@ -42,7 +42,7 @@ const Home = () => (
             width="2.5em"
             height="2.5em"
             viewBox="0 0 16 16"
-            className="bi bi-card-checklist"
+            //className="bi bi-card-checklist"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
           >

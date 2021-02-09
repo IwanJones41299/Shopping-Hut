@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-const loading = {
-  margin: "1em",
-  fontSize: "30px",
-};
-
 export default class ResetPassword extends Component {
   constructor() {
     super();
