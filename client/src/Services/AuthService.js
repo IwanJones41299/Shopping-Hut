@@ -32,7 +32,7 @@ export default {
   },
   isAuthenticated: async () => {
     const res = await fetch("/user/authenticated");
-    if (res.status == 200)
+    if (res.status !== 401)
       return res.json().then((data) => data);
     else
       return { isAuthenticated: false, user: { username: "" } };
