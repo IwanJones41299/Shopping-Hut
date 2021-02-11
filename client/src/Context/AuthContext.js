@@ -13,7 +13,7 @@ export default ({ children }) => {
             setUser(data.user);
             setIsAuthenticated(data.isAuthenticated);
             setIsLoaded(true);
-        }).catch(err => {console.log(err) });
+        })/* .catch(err => {console.log(err) }); */
     },[])
 
     return (
