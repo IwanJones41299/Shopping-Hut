@@ -29,7 +29,3 @@ const userRouter = require("./routes/userRoute");
 app.use("/user", userRouter);
 
 app.use('/contact', require('./routes/contactRouter'));
-
-app.listen(PORT, () => {
-  console.log(`Server has been started on ${PORT} -- SH`);
-});
