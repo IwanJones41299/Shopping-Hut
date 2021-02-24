@@ -1,0 +1,62 @@
+//Variables
+$logo : #104c91;
+$primary :#EFC9AF;
+$secondary : #1f8ac0;
+$google : #4885ed;
+$facebook : #3b5998;
+
+html,
+body {
+    margin: auto;
+}
+
+.navbar {
+    background-color: $primary;
+    border: none;
+    outline: none;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.nav-brand {
+    font-size: 1em;
+}
+
+.login-mobile {
+    padding-right: 1.5vh !important;
+    font-size: 1.5em !important;
+}
+
+.reg-mobile {
+    text-transform: uppercase;
+    font-size: 1.5em !important;
+}
+
+.nav_Title {
+    margin: 0;
+    color: $logo;
+}
+
+.nav-link {
+    color: $logo;
+    font-weight: bold;
+}
+
+.login-mobile:hover {
+    color: $secondary;
+    transition: 0.2s ease-in;
+    font-weight: bold;
+}
+
+.reg-mobile:hover {
+    color: $secondary;
+    transition: 0.2s ease-in;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none !important;
+    border: none !important;
+}

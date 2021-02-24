@@ -1,0 +1,205 @@
+//Variables
+$logo : #104c91;
+$primary :#EFC9AF;
+$secondary : #1f8ac0;
+
+body {
+    background-color: $logo;
+}
+
+main{
+    min-height: 69vh;
+}
+
+.browserMain{
+    min-height: 68vh;
+}
+
+//mobile
+
+.container-fluid {
+    padding: 30px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home_top {
+    background-color: $logo;
+}
+
+.home_middle {
+    background-color: $primary;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
+}
+
+.welcome_title,
+.welcome_subtitle {
+    text-align: center;
+    color: $primary;
+}
+
+.btn-login,
+.btn-reg {
+    margin-bottom: 2%;
+    margin-left: 2%;
+    width: 30%;
+    background-color: $logo;
+    border: 2px solid;
+    color: $primary;
+}
+
+.btn-login:hover,
+.btn-reg:hover {
+    background-color: $primary;
+    color: $logo;
+    border: 2px solid $logo;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+.pwa_title {
+    color: $logo;
+}
+
+
+
+.card-body {
+    margin-top: 0;
+    padding-top: 0;
+    color: $logo;
+}
+
+.home_bottom {
+    background-color: $logo;
+    color: $primary;
+}
+
+footer {
+    background-color: $primary;
+    color: $logo;
+}
+
+footer .container-fluid {
+    padding: 0%;
+}
+
+.copyright-text {
+    color: $logo !important;
+    margin-left: 0.5%;
+}
+
+.copyright-text:hover {
+    color: white !important;
+}
+
+.signin {
+    color: $primary;
+    margin-bottom: 5%;
+}
+
+.loginForm {
+    margin: 35% 50% 0 0;
+}
+
+.login-btn {
+    background-color: $primary;
+    color: $logo;
+    border: none;
+    margin-top: 5%;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.login-btn:hover {
+    background-color: $secondary;
+    color: $primary;
+    border: none;
+}
+
+.signupForm {
+    margin: 25.5% 50% 0 0;
+}
+
+/* .footer-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $primary;
+    color: $logo;
+    text-align: center;
+} */
+
+//browser
+.bg-custom {
+    background: $primary;
+    color: $logo;
+}
+
+.browser_middle {
+    text-align: center;
+    margin-bottom: 6.5% !important;
+}
+
+.card {
+    background: none !important;
+    border: none;
+}
+
+.browser_loginForm{
+    padding: 7% 7% 0 0;
+    margin: 10% 10% 0 0;
+}
+
+.browser_title{
+    height: 40vh;
+    padding: 0;
+}
+
+.browser_login{
+    height: 40vh;
+    padding: 0;
+}
+
+.b_loginTitle, .b_loginText{
+    color: $primary;
+    padding-bottom: 1.5%;
+}
+
+.reg-link{
+    color: $primary;
+}
+
+.reg-link:hover{
+    color: $secondary;
+}
+
+.login-btnBrowser{
+    background-color: $primary;
+    color: $logo;
+    border-color: $primary;
+}
+
+.login-btnBrowser:hover{
+    background-color: $logo;
+    color: $primary;
+    border-color: $primary;
+}
+
+.browser_signupForm{
+    padding: 7% 7% 0 0;
+    margin: 6% 6% 0 0;
+}
+
+.browser_SignUptitle{
+    padding-top: 3%;
+}
+
+.alert{
+    color: $primary !important;
+}

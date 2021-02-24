@@ -1,0 +1,64 @@
+//Variables
+$logo : #104c91;
+$primary :#EFC9AF;
+$secondary : #1f8ac0;
+$google : #4885ed;
+$facebook : #3b5998;
+
+
+html, body {
+    margin: auto;
+}
+
+.navbar{
+    background-color: $primary;
+    border: none;
+    outline: none;
+}
+
+.navbar-nav{
+    flex-direction: row;
+}
+
+.nav-brand{
+    font-size: 1em;
+}
+
+.login{
+    padding-right: 2vh !important;
+}
+
+.reg{
+    padding-right: 2vh !important;
+}
+
+
+.nav_Title{
+    margin: 0;
+    color:  $logo;
+}
+
+.nav-link{
+    color: $logo;
+    font-weight: 400;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.login:hover{
+    color: $secondary;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+.reg:hover{
+    //color: $logo !important;
+    color: $secondary;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+a:hover{
+    text-decoration: none !important;
+    border: none !important;
+}
