@@ -7,11 +7,11 @@ body {
     background-color: $logo;
 }
 
-main{
-    min-height: 69vh;
+main {
+    min-height: 70vh;
 }
 
-.browserMain{
+.browserMain {
     min-height: 68vh;
 }
 
@@ -45,7 +45,7 @@ main{
 .btn-reg {
     margin-bottom: 2%;
     margin-left: 2%;
-    width: 30%;
+    min-width: 30%;
     background-color: $logo;
     border: 2px solid;
     color: $primary;
@@ -151,55 +151,124 @@ footer .container-fluid {
     border: none;
 }
 
-.browser_loginForm{
+.browser_loginForm {
     padding: 7% 7% 0 0;
     margin: 10% 10% 0 0;
 }
 
-.browser_title{
+.browser_title {
     height: 40vh;
     padding: 0;
 }
 
-.browser_login{
+.browser_login {
     height: 40vh;
     padding: 0;
 }
 
-.b_loginTitle, .b_loginText{
+.b_loginTitle,
+.b_loginText {
     color: $primary;
     padding-bottom: 1.5%;
 }
 
-.reg-link{
+.reg-link {
     color: $primary;
 }
 
-.reg-link:hover{
+.reg-link:hover {
     color: $secondary;
 }
 
-.login-btnBrowser{
+.login-btnBrowser {
     background-color: $primary;
     color: $logo;
     border-color: $primary;
 }
 
-.login-btnBrowser:hover{
+.login-btnBrowser:hover {
     background-color: $logo;
     color: $primary;
     border-color: $primary;
 }
 
-.browser_signupForm{
+.browser_signupForm {
     padding: 7% 7% 0 0;
     margin: 6% 6% 0 0;
 }
 
-.browser_SignUptitle{
+.browser_SignUptitle {
     padding-top: 3%;
 }
 
-.alert{
+.alert {
     color: $primary !important;
+}
+
+.browser_contact {
+    padding-top: 3%;
+}
+
+//---------------------------------//
+.category_title {
+    color: $primary !important;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.list-container {
+    padding-bottom: 15%;
+}
+
+.list-group-item {
+    border-radius: 15px !important;
+    margin-bottom: 4%;
+    color: $logo !important;
+}
+
+.list-group-item:hover:link {
+    color: $logo !important;
+    text-decoration: underline !important;
+    text-transform: uppercase !important;
+    transition: .5s;
+}
+
+.table_container {
+    padding: 0 !important;
+}
+
+.product_input {
+    border: none !important;
+    background: none;
+    margin-bottom: 3%;
+    color: $primary;
+    border-bottom: 1px solid $primary !important;
+    border-radius: 0;
+    outline: none;
+
+}
+
+.product_input:focus {
+    border: none !important;
+    background: none;
+    margin-bottom: 3%;
+    color: $primary;
+}
+
+.product_input::placeholder {
+    border: none !important;
+    background: none;
+    margin-bottom: 3%;
+    color: $primary;
+}
+
+.browser-menu {
+    background-color: $primary;
+    color: $logo !important;
+}
+
+.browser-menu:hover{
+    background-color: $secondary;
+    color: $primary !important;
+    transition: 0.6s;
 }

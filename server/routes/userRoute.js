@@ -20,7 +20,7 @@ const signtoken = userID => {
     return JWT.sign({
         iss : "C55284D857062C50C092630AD4924E5DE000BE9BDBE63E5EA650B11621531417",
         sub : userID
-    },"C55284D857062C50C092630AD4924E5DE000BE9BDBE63E5EA650B11621531417",{expiresIn : "1h"});
+    },"C55284D857062C50C092630AD4924E5DE000BE9BDBE63E5EA650B11621531417",{expiresIn : "35m"});
 }
 
 //Register a user
@@ -50,6 +50,9 @@ userRouter.post('/login',passport.authenticate('local',{session : false}), (req,
         const token = signtoken(_id);
         res.cookie('access_token',token,{httpOnly: true, sameSite: true});
         res.status(200).json({isAuthenticated : true, user : {username}});
+    }
+    else if(err){
+        res.status(500).json({message : { msgBody : "Incorrect login details", msgError: true}});
     }
 });
 

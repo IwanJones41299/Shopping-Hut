@@ -26,12 +26,12 @@ body {
 
 .login-mobile {
     padding-right: 1.5vh !important;
-    font-size: 1.5em !important;
+    font-size: 2em !important;
 }
 
 .reg-mobile {
     text-transform: uppercase;
-    font-size: 1.5em !important;
+    font-size: 2em !important;
 }
 
 .nav_Title {
@@ -59,4 +59,13 @@ body {
 a:hover {
     text-decoration: none !important;
     border: none !important;
+}
+
+.mobile_bottomNav{
+    background-color: $primary;
+    position: fixed;
+    bottom: 0;
+    width: 100% !important;
+    border-radius: 5px 5px 0 0;
+    z-index: 9000;
 }

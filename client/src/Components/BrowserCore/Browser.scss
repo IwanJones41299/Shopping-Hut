@@ -39,26 +39,58 @@ html, body {
 }
 
 .nav-link{
-    color: $logo;
-    font-weight: 400;
+    color: $logo !important;
+    font-weight: 400 !important;
     font-size: 1em;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
 }
 
 .login:hover{
-    color: $secondary;
-    font-weight: bold;
-    transition: 0.2s ease-in-out;
+    color: $secondary !important;
+    font-weight: bold !important;
+    transition: 0.2s ease-in-out !important;
 }
 
 .reg:hover{
-    //color: $logo !important;
-    color: $secondary;
-    font-weight: bold;
-    transition: 0.2s ease-in-out;
+    color: $secondary !important;
+    font-weight: bold !important;
+    transition: 0.2s ease-in-out !important;
 }
 
 a:hover{
     text-decoration: none !important;
     border: none !important;
+}
+
+.makeStyles-root-1{
+    min-width: 50% !important;
+    margin: auto !important;
+    background-color: $primary !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 25% !important;
+    border-radius: 10px 10px 0 0;
+    text-transform: lowercase;
+}
+
+.MuiBottomNavigationAction-label{
+    text-transform: uppercase;
+    color: $logo;
+}
+.bottom-nav{
+    width: 30%;
+    position: absolute;
+    left: 35%;
+    top: 0;
+}
+
+.btmNav:hover{
+    color: $secondary !important;
+    font-weight: bold !important;
+    transition: 0.2s ease-in-out !important;
+}
+
+.userNav:hover{
+    color: $secondary !important;
+    transition: 0.5s;
 }

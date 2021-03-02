@@ -41,10 +41,11 @@ const HomeScreen = () => {
             <p className="card-body">
               Install our app by adding it to your homescreen
             </p>
-
-            {/* <a className="btn download-btn" href="https://reactjs.org/">
-          Download
-        </a> */}
+            <Link to="/contact">
+              <Button variant="outline-primary" className="btn btn-login">
+                Contact
+              </Button>
+            </Link>
           </div>
         </section>
 

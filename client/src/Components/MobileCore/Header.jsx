@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
-import { AuthContext } from "../../Context/AuthContext"
+import { AuthContext } from "../../Context/AuthContext";
+import { Nav, Navbar } from "react-bootstrap";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { BsPersonPlus } from "react-icons/bs";
-import { AiOutlinePoweroff } from "react-icons/ai";
 import "./Mobile.scss";
 
 const Header = (props) => {
@@ -26,10 +26,10 @@ const Header = (props) => {
     return (
       <>
         <Link to="/login">
-          <li className="nav-item nav-link login-mobile"><RiAccountCircleLine /></li>
+          <Nav className="nav-item nav-link login-mobile"><RiAccountCircleLine /></Nav>
         </Link>
         <Link to="/register">
-          <li className="nav-item nav-link reg-mobile"><BsPersonPlus /></li>
+          <Nav className="nav-item nav-link reg-mobile"><BsPersonPlus /></Nav>
         </Link>
       </>
     );
@@ -39,25 +39,26 @@ const Header = (props) => {
     return (
       <>
         <Link to="/">
-        <li className="nav-item nav-link" onClick={onClickLogoutHandler}><AiOutlinePoweroff style={{fontSize: "1.5em"}}/></li>
+        <Nav className="nav-item nav-link" onClick={onClickLogoutHandler}>Logout</Nav>
         </Link>
       </>
     );
   };
 
   return (
-    <nav className="navbar">
+    <Navbar className="navbar">
       <Link to="/">
-        <div className="navbar-brand">
-            <h5 className="nav_Title">Shopping Hut</h5>
-        </div>
+      <Navbar.Brand href="#home">
+        <h5 className="nav_Title">Shopping Hut</h5>
+      </Navbar.Brand>
       </Link>
-        <div className="justify-content-end">
-            <ul className="navbar-nav mr-auto">
-            {!isAuthenticated ? unauthenticatedNavbar() : authenticatedNavbar()}
-          </ul>
-        </div>
-    </nav>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          {!isAuthenticated ? unauthenticatedNavbar() : authenticatedNavbar()}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
