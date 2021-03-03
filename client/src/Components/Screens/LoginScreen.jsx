@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
 import { isMobile } from "react-device-detect";
-import Message from "../Message";
+//import Message from "../Message";
 import { AuthContext } from "../../Context/AuthContext";
 import {
   Form,
@@ -12,6 +12,7 @@ import {
   Card,
   Row,
   Col,
+  Alert,
 } from "react-bootstrap";
 import { BsFillPersonFill } from "react-icons/bs";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -20,7 +21,7 @@ import BsrFooter from "../BrowserCore/Footer";
 
 const LoginScreen = (props) => {
   const [user, setUser] = useState({ username: ""});
-  const [message, setMessage] = useState(null);
+  const [error, setError] = useState("");
   const authContext = useContext(AuthContext);
 
   const onChange = (e) => {
@@ -31,13 +32,13 @@ const LoginScreen = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     AuthService.login(user).then((data) => {
-      const { isAuthenticated, user, message } = data;
+      const { isAuthenticated, user } = data;
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
         props.history.push("/menu");
       } else{
-        setMessage(message);
+        setError("Login details are incorrect");
       }
     });
   };
@@ -51,6 +52,7 @@ const LoginScreen = (props) => {
               <h3 className="signin">Log In</h3>
             </Card.Body>
             <Form onSubmit={onSubmit}>
+              {(error !== "") ? (<Alert variant="danger">{error}</Alert>) : ""}
               <Form.Group>
                 <InputGroup>
                   <InputGroup.Prepend>
@@ -91,7 +93,6 @@ const LoginScreen = (props) => {
                 <Card.Text className="reg-link">Create an account...</Card.Text>
               </Link>
             </Form>
-            {message ? <Message message={message} /> : null}
           </Container>
         </main>
         <MobFooter />
@@ -121,6 +122,7 @@ const LoginScreen = (props) => {
               </Col>
               <Col className="col-3 browser_login">
                 <Form onSubmit={onSubmit}>
+                {(error !== "") ? (<Alert variant="danger">{error}</Alert>) : ""}
                   <Form.Group>
                     <InputGroup>
                       <InputGroup.Prepend>
@@ -163,7 +165,6 @@ const LoginScreen = (props) => {
                       Reset Password...
                     </Card.Text>
                   </Link>
-                  {message ? <Message message={message} /> : null}
                 </Form>
               </Col>
               <Col className="Col-3" />

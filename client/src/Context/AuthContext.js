@@ -16,7 +16,7 @@ export default ({ children }) => {
             setIsLoaded(true);
         }).catch(err => {console.log(err) });
     },[])
-
+    
     return (
         <div>
             {!isLoaded ? <h1>Loading</h1> : 

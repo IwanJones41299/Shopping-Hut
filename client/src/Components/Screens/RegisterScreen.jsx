@@ -48,7 +48,7 @@ const Register = (props) => {
       username: "",
       email: "",
       accountRole: "",
-      password: "",
+      password: ""
     });
     setConfirmedPassword("");
   };
