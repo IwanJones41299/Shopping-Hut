@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Context/AuthContext";
 import Message from "../../Message";
 import { Container, Table } from "react-bootstrap";
 import { isMobile } from "react-device-detect";
+import { Helmet } from "react-helmet";
 import MobileBottomNav from "../../MobileCore/BottomNav";
 import BrowserBottomNav from "../../BrowserCore/BottomNav";
 
@@ -56,6 +57,10 @@ const FruitVegScreen = (props) => {
     });
   };
 
+  const clearList = () => {
+
+  };
+
   const resetForm = () => {
     setfruitveg({
       name: "",
@@ -67,6 +72,10 @@ const FruitVegScreen = (props) => {
   if (isMobile) {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Fruit & Veg</title>
+        </Helmet>
         <h3 className="text-center mt-5 category_title">Fruit & Veg</h3>
         <Container fluid>
           <form onSubmit={onSubmit}>
@@ -104,6 +113,12 @@ const FruitVegScreen = (props) => {
               Add
             </button>
           </form>
+          <button
+            onClick={clearList}
+            className="btn btn-primary btn-block login-btn mt-2"
+          >
+            Clear
+          </button>
           {message ? <Message message={message} /> : null}
         </Container>
         <Container fluid className="table_container">
@@ -119,9 +134,7 @@ const FruitVegScreen = (props) => {
             <tbody>
               {fruitvegItems &&
                 fruitvegItems.map((fruitveg) => {
-                  return (
-                    <Item key={fruitveg._id} fruitveg={fruitveg} />
-                  );
+                  return <Item key={fruitveg._id} fruitveg={fruitveg} />;
                 })}
             </tbody>
           </Table>
@@ -132,8 +145,12 @@ const FruitVegScreen = (props) => {
   } else {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Fruit & Veg</title>
+        </Helmet>
         <h3 className="text-center mt-5 category_title">Fruit & Veg</h3>
-        <Container fluid style={{maxWidth: "30%"}}>
+        <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input
               type="text"
@@ -171,7 +188,11 @@ const FruitVegScreen = (props) => {
           </form>
           {message ? <Message message={message} /> : null}
         </Container>
-        <Container fluid className="table_container" style={{maxWidth: "30%"}}>
+        <Container
+          fluid
+          className="table_container"
+          style={{ maxWidth: "30%" }}
+        >
           <Table responsive="md" className="table-borderless">
             <thead>
               <tr>
@@ -184,16 +205,14 @@ const FruitVegScreen = (props) => {
             <tbody>
               {fruitvegItems &&
                 fruitvegItems.map((fruitveg) => {
-                  return (
-                    <Item key={fruitveg._id} fruitveg={fruitveg} />
-                  );
+                  return <Item key={fruitveg._id} fruitveg={fruitveg} />;
                 })}
             </tbody>
           </Table>
         </Container>
         <BrowserBottomNav />
       </>
-    )
+    );
   }
 };
 

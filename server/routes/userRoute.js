@@ -44,7 +44,7 @@ userRouter.post('/register', (req,res) => {
 });
 
 //User login
-userRouter.post('/login',passport.authenticate('local',{session : false}), (req, res) => {
+userRouter.post('/login',passport.authenticate('jwt',{session : false}), (req, res) => {
     if(req.isAuthenticated()){
         const {_id,username} =req.user;
         const token = signtoken(_id);
@@ -95,6 +95,7 @@ userRouter.get('/fruitvegList',passport.authenticate('jwt',{session : false}),(r
         }
     });
 });
+
 
 userRouter.route('/deleteFruitVeg/:id').get(function (req, res) {
     FruitVegItem.findByIdAndRemove({_id: req.params.id}, function (err, fruitveg) {

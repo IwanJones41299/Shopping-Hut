@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
 import { isMobile } from "react-device-detect";
-import Message from "../Message";
+import { Helmet } from "react-helmet";
 import {
   Form,
   Button,
@@ -11,6 +11,7 @@ import {
   Card,
   Row,
   Col,
+  Alert
 } from "react-bootstrap";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -29,7 +30,8 @@ const Register = (props) => {
     password: "",
   });
   const [confirmedPasword, setConfirmedPassword] = useState("");
-  const [message, setMessage] = useState(null);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   let timerID = useRef(null);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ const Register = (props) => {
       username: "",
       email: "",
       accountRole: "",
-      password: ""
+      password: "",
     });
     setConfirmedPassword("");
   };
@@ -57,11 +59,11 @@ const Register = (props) => {
     e.preventDefault();
 
     if (user.password !== confirmedPasword) {
-      alert("Passwords do not match! Try again");
+      setError("Passwords do not match!")
     } else {
       AuthService.register(user).then((data) => {
         const { message } = data;
-        setMessage(message);
+        setSuccess("Registration sucessful")
         resetForm();
         if (!message.msgError) {
           timerID = setTimeout(() => {
@@ -75,12 +77,18 @@ const Register = (props) => {
   if (isMobile) {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Registration</title>
+        </Helmet>
         <main style={{ minHeight: "74vh" }}>
           <Container fluid className="signupForm">
             <Card.Body>
               <h3 className="signin">Sign Up</h3>
             </Card.Body>
             <Form onSubmit={onSubmit}>
+            {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
+            {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
               <Form.Group>
                 <InputGroup>
                   <InputGroup.Prepend>
@@ -196,7 +204,6 @@ const Register = (props) => {
                 </Card.Text>
               </Link>
             </Form>
-            {message ? <Message message={message} /> : null}
           </Container>
         </main>
         <MobFooter />
@@ -205,6 +212,10 @@ const Register = (props) => {
   } else {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Registration</title>
+        </Helmet>
         <main style={{ minHeight: "76vh" }}>
           <Container fluid className="browser_signupForm">
             <Row>
@@ -226,6 +237,8 @@ const Register = (props) => {
               </Col>
               <Col className="col-3 browser_login">
                 <Form onSubmit={onSubmit}>
+                {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
+                {success !== "" ? <Alert variant="sucess">{success}</Alert> : ""}
                   <Form.Group>
                     <InputGroup>
                       <InputGroup.Prepend>
@@ -334,7 +347,6 @@ const Register = (props) => {
                   <Button variant="primary" type="submit" className="login-btn">
                     Create Account
                   </Button>
-                  {message ? <Message message={message} /> : null}
                 </Form>
               </Col>
               <Col className="Col-3" />

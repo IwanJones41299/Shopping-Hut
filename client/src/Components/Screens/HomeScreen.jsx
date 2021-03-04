@@ -1,9 +1,10 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import { Helmet } from "react-helmet";
 import { Card, CardDeck } from "react-bootstrap";
 import { BiListPlus } from "react-icons/bi";
-import { RiPrinterCloudLine } from "react-icons/ri"
-import { GoCloudDownload } from "react-icons/go"
+import { RiPrinterCloudLine } from "react-icons/ri";
+import { GoCloudDownload } from "react-icons/go";
 import MobFooter from "../MobileCore/Footer";
 import BsrFooter from "../BrowserCore/Footer";
 import { isMobile } from "react-device-detect";
@@ -14,6 +15,10 @@ const HomeScreen = () => {
   if (isMobile) {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Home</title>
+        </Helmet>
         <section className="home_top">
           <div className="container-fluid content">
             <h3 className="welcome_title">Shopping Hut</h3>
@@ -76,6 +81,10 @@ const HomeScreen = () => {
   } else {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Home</title>
+        </Helmet>
         <section>
           <div className="position-relative overflow-hidden text-center bg-custom">
             <div className="col-md-5 p-lg-5 mx-auto my-5">
@@ -102,35 +111,63 @@ const HomeScreen = () => {
         <section className="browser_middle">
           <CardDeck className="mt-5 ml-3 mr-3">
             <Card>
-              <GoCloudDownload className="mt-4 mb-4" style={{fontSize: "4.5em", margin: "auto", color: "#EFC9AF"}} alt="Download Icon"/>
+              <GoCloudDownload
+                className="mt-4 mb-4"
+                style={{ fontSize: "4.5em", margin: "auto", color: "#EFC9AF" }}
+                alt="Download Icon"
+              />
               <Card.Body>
-                <Card.Title className="mb-4" style={{color: "#EFC9AF", fontSize: "2em"}}>Discover our PWA</Card.Title>
-                <Card.Text style={{color: "#EFC9AF", fontSize: "1.2em"}}>
-                    Install our app by adding it to <br /> your homescreen
+                <Card.Title
+                  className="mb-4"
+                  style={{ color: "#EFC9AF", fontSize: "2em" }}
+                >
+                  Discover our PWA
+                </Card.Title>
+                <Card.Text style={{ color: "#EFC9AF", fontSize: "1.2em" }}>
+                  Install our app by adding it to <br /> your homescreen
                 </Card.Text>
               </Card.Body>
             </Card>
             <Card>
-              <BiListPlus className="mt-4 mb-4" style={{fontSize: "4.5em", margin: "auto", color: "#EFC9AF"}} alt="List Icon"/>
+              <BiListPlus
+                className="mt-4 mb-4"
+                style={{ fontSize: "4.5em", margin: "auto", color: "#EFC9AF" }}
+                alt="List Icon"
+              />
               <Card.Body>
-                <Card.Title className="mb-4" style={{color: "#EFC9AF", fontSize: "2em"}}>Create your shoppin list</Card.Title>
-                <Card.Text style={{color: "#EFC9AF", fontSize: "1.2em"}}>
-                    Creating your weekly shopping list <br /> at ease.
+                <Card.Title
+                  className="mb-4"
+                  style={{ color: "#EFC9AF", fontSize: "2em" }}
+                >
+                  Create your shoppin list
+                </Card.Title>
+                <Card.Text style={{ color: "#EFC9AF", fontSize: "1.2em" }}>
+                  Creating your weekly shopping list <br /> at ease.
                 </Card.Text>
               </Card.Body>
             </Card>
             <Card>
-              <RiPrinterCloudLine className="mt-4 mb-4" style={{fontSize: "3.5em", margin: "auto", color: "#EFC9AF"}} alt="Printer Icon"/>
+              <RiPrinterCloudLine
+                className="mt-4 mb-4"
+                style={{ fontSize: "3.5em", margin: "auto", color: "#EFC9AF" }}
+                alt="Printer Icon"
+              />
               <Card.Body>
-                <Card.Title className="mb-4" style={{color: "#EFC9AF", fontSize: "2em"}}>Print your list</Card.Title>
-                <Card.Text style={{color: "#EFC9AF", fontSize: "1.2em"}}>
-                    Print your list out in a pdf to have at <br /> quick access on your phone
+                <Card.Title
+                  className="mb-4"
+                  style={{ color: "#EFC9AF", fontSize: "2em" }}
+                >
+                  Print your list
+                </Card.Title>
+                <Card.Text style={{ color: "#EFC9AF", fontSize: "1.2em" }}>
+                  Print your list out in a pdf to have at <br /> quick access on
+                  your phone
                 </Card.Text>
               </Card.Body>
             </Card>
           </CardDeck>
         </section>
-        
+
         <BsrFooter />
       </>
     );

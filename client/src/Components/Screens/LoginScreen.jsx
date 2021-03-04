@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
 import { isMobile } from "react-device-detect";
-//import Message from "../Message";
+import { Helmet } from "react-helmet";
 import { AuthContext } from "../../Context/AuthContext";
 import {
   Form,
@@ -20,7 +20,7 @@ import MobFooter from "../MobileCore/Footer";
 import BsrFooter from "../BrowserCore/Footer";
 
 const LoginScreen = (props) => {
-  const [user, setUser] = useState({ username: ""});
+  const [user, setUser] = useState({ username: "" });
   const [error, setError] = useState("");
   const authContext = useContext(AuthContext);
 
@@ -37,7 +37,7 @@ const LoginScreen = (props) => {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
         props.history.push("/menu");
-      } else{
+      } else {
         setError("Login details are incorrect");
       }
     });
@@ -46,13 +46,17 @@ const LoginScreen = (props) => {
   if (isMobile) {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Login</title>
+        </Helmet>
         <main>
           <Container fluid className="loginForm">
             <Card.Body>
               <h3 className="signin">Log In</h3>
             </Card.Body>
             <Form onSubmit={onSubmit}>
-              {(error !== "") ? (<Alert variant="danger">{error}</Alert>) : ""}
+              {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
               <Form.Group>
                 <InputGroup>
                   <InputGroup.Prepend>
@@ -101,6 +105,10 @@ const LoginScreen = (props) => {
   } else {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Login</title>
+        </Helmet>
         <main className="browserMain">
           <Container fluid className="browser_loginForm">
             <Row>
@@ -122,7 +130,7 @@ const LoginScreen = (props) => {
               </Col>
               <Col className="col-3 browser_login">
                 <Form onSubmit={onSubmit}>
-                {(error !== "") ? (<Alert variant="danger">{error}</Alert>) : ""}
+                  {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
                   <Form.Group>
                     <InputGroup>
                       <InputGroup.Prepend>

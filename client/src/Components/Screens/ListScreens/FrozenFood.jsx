@@ -5,6 +5,7 @@ import { AuthContext } from "../../../Context/AuthContext";
 import Message from "../../Message";
 import { Container, Table } from "react-bootstrap";
 import { isMobile } from "react-device-detect";
+import { Helmet } from "react-helmet";
 import MobileBottomNav from "../../MobileCore/BottomNav";
 import BrowserBottomNav from "../../BrowserCore/BottomNav";
 
@@ -67,6 +68,10 @@ const FrozenFoodScreen = (props) => {
   if (isMobile) {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Frozen Food</title>
+        </Helmet>
         <h3 className="text-center mt-5 category_title">Frozen Food</h3>
         <Container fluid>
           <form onSubmit={onSubmit}>
@@ -119,12 +124,7 @@ const FrozenFoodScreen = (props) => {
             <tbody>
               {frozenfoodItems &&
                 frozenfoodItems.map((frozenfood) => {
-                  return (
-                    <Item
-                      key={frozenfood._id}
-                      frozenfood={frozenfood}
-                    />
-                  );
+                  return <Item key={frozenfood._id} frozenfood={frozenfood} />;
                 })}
             </tbody>
           </Table>
@@ -135,8 +135,12 @@ const FrozenFoodScreen = (props) => {
   } else {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Frozen Food</title>
+        </Helmet>
         <h3 className="text-center mt-5 category_title">Frozen Food</h3>
-        <Container fluid style={{maxWidth: "30%"}}>
+        <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input
               type="text"
@@ -174,7 +178,11 @@ const FrozenFoodScreen = (props) => {
           </form>
           {message ? <Message message={message} /> : null}
         </Container>
-        <Container fluid className="table_container" style={{maxWidth: "30%"}}>
+        <Container
+          fluid
+          className="table_container"
+          style={{ maxWidth: "30%" }}
+        >
           <Table responsive="md" className="table-borderless">
             <thead>
               <tr>
@@ -187,19 +195,14 @@ const FrozenFoodScreen = (props) => {
             <tbody>
               {frozenfoodItems &&
                 frozenfoodItems.map((frozenfood) => {
-                  return (
-                    <Item
-                      key={frozenfood._id}
-                      frozenfood={frozenfood}
-                    />
-                  );
+                  return <Item key={frozenfood._id} frozenfood={frozenfood} />;
                 })}
             </tbody>
           </Table>
         </Container>
         <BrowserBottomNav />
       </>
-    )
+    );
   }
 };
 

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/App.scss';
 import { BrowserView, MobileView } from "react-device-detect";
 import PrivateRoute from './hocs/PrivateRoute';
+import UnprivateRoute from './hocs/UnprivateRoute';
 
 import MobileHeader from './Components/MobileCore/Header';
 import BrowserHeader from './Components/BrowserCore/Header';
@@ -32,10 +33,10 @@ function App() {
         <MobileView>
           <MobileHeader />
         </MobileView>
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/contact" component={Contact} />
+        <UnprivateRoute exact path="/" component={Home} />
+        <UnprivateRoute path="/login" component={Login} />
+        <UnprivateRoute path="/register" component={Register} />
+        <UnprivateRoute path="/contact" component={Contact} />
         <PrivateRoute path="/user_contact" accountRoles={["Personal", "Family"]} component={UserContact} />
         <PrivateRoute path="/menu" accountRoles={["Personal", "Family"]} component={Menu} />
 
