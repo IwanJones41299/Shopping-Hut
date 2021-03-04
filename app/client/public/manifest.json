@@ -1,0 +1,15 @@
+{
+    "short_name": "Shopping Hut",
+    "name": "Shopping Hut Progressive Web App",
+    "icons": [
+        {
+            "src": "images/logo.png",
+            "type": "images/png",
+            "sizes": "1024x1024"
+        }
+    ],
+    "start_url" : ".",
+    "display" : "standalone",
+    "theme_color" : "#000000",
+    "background_color" : "#ffffff"
+}
