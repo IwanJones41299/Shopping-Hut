@@ -86,6 +86,7 @@ userRouter.post('/fruitvegItems',passport.authenticate('jwt',{session : false}),
     });
 });
 
+
 userRouter.get('/fruitvegList',passport.authenticate('jwt',{session : false}),(req,res) => {
     User.findById({_id : req.user._id}).populate('fruitvegItems').exec((err, document) => {
         if(err)
@@ -103,7 +104,6 @@ userRouter.route('/deleteFruitVeg/:id').get(function (req, res) {
         else res.json('Deleted');
     });
 });
-
 
 userRouter.post('/freshfoodItems',passport.authenticate('jwt',{session : false}),(req,res) => {
     const freshfood = new FreshFoodItem(req.body);
