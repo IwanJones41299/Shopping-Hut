@@ -17,14 +17,14 @@ const DriedGoodsItem = (props) => {
   return (
     <>
       <tr className="product_results">
+        <td className="itemFont completed">
+          <input className="form-check-input" type="checkbox" onClick={deleteItem} />
+        </td>
         <td className="itemFont" style={{ color: "#EFC9AF" }}>
           {props.driedfood.name}
         </td>
         <td className="itemFont" style={{ color: "#EFC9AF" }}>
           {props.driedfood.quantity}
-        </td>
-        <td className="itemFont" style={{ color: "#EFC9AF" }}>
-          {props.driedfood.user}
         </td>
         <button
           className="btn btn-sm btn-primary login-btn mt-2"

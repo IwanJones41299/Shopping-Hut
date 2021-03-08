@@ -115,9 +115,9 @@ const FreshFoodScreem = (props) => {
           <Table responsive="md" className="table-borderless">
             <thead>
               <tr>
+                <th style={{ color: "#EFC9AF" }}>Completed</th>
                 <th style={{ color: "#EFC9AF" }}>Product</th>
                 <th style={{ color: "#EFC9AF" }}>Quantity</th>
-                <th style={{ color: "#EFC9AF" }}>User</th>
                 <th style={{ color: "#EFC9AF" }}>Remove</th>
               </tr>
             </thead>
@@ -186,9 +186,9 @@ const FreshFoodScreem = (props) => {
           <Table responsive="md" className="table-borderless">
             <thead>
               <tr>
+                <th style={{ color: "#EFC9AF" }}>Completed</th>
                 <th style={{ color: "#EFC9AF" }}>Product</th>
                 <th style={{ color: "#EFC9AF" }}>Quantity</th>
-                <th style={{ color: "#EFC9AF" }}>User</th>
                 <th style={{ color: "#EFC9AF" }}>Remove</th>
               </tr>
             </thead>

@@ -125,13 +125,13 @@ const FruitVegScreen = (props) => {
           <Table responsive="md" className="table-borderless">
             <thead>
               <tr>
+                <th style={{ color: "#EFC9AF" }}>Completed</th>
                 <th style={{ color: "#EFC9AF" }}>Product</th>
                 <th style={{ color: "#EFC9AF" }}>Quantity</th>
-                <th style={{ color: "#EFC9AF" }}>User</th>
                 <th style={{ color: "#EFC9AF" }}>Remove</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className>
               {fruitvegItems &&
                 fruitvegItems.map((fruitveg) => {
                   return <Item key={fruitveg._id} fruitveg={fruitveg} />;
@@ -196,9 +196,9 @@ const FruitVegScreen = (props) => {
           <Table responsive="md" className="table-borderless">
             <thead>
               <tr>
+                <th style={{ color: "#EFC9AF" }}>Completed</th>
                 <th style={{ color: "#EFC9AF" }}>Product</th>
                 <th style={{ color: "#EFC9AF" }}>Quantity</th>
-                <th style={{ color: "#EFC9AF" }}>User</th>
                 <th style={{ color: "#EFC9AF" }}>Remove</th>
               </tr>
             </thead>
