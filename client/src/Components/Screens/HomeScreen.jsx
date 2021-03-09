@@ -21,7 +21,7 @@ const HomeScreen = () => {
         </Helmet>
         <section className="home_top">
           <div className="container-fluid content">
-            <h3 className="welcome_title">Shopping Hut</h3>
+            <h2 className="welcome_title">Shopping Hut</h2>
             <p className="welcome_subtitle">
               Create your shopping list
               <br />
@@ -61,7 +61,7 @@ const HomeScreen = () => {
             </h3>
             <div className="features_card">
               <BiListPlus style={{ fontSize: "3.5em" }} />
-              <h5 className="feature_title">Create your shopping list</h5>
+              <h4 className="feature_title">Create your shopping list</h4>
               <p>Creating your weekly shopping list at ease.</p>
             </div>
             <div className="features_card">

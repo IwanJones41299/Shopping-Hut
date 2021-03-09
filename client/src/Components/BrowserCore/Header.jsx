@@ -49,7 +49,7 @@ const Header = (props) => {
     <Navbar className="navbar" expand="md">
       <Link to="/">
       <Navbar.Brand href="#home">
-        <h5 className="nav_Title">Shopping Hut</h5>
+        <h1 className="nav_Title" style={{fontSize : "1.2em"}}>Shopping Hut</h1>
       </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

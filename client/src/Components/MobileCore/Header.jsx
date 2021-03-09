@@ -26,10 +26,10 @@ const Header = (props) => {
     return (
       <>
         <Link to="/login">
-          <Nav className="nav-item nav-link login-mobile"><RiAccountCircleLine /></Nav>
+          <Nav className="nav-item nav-link login-mobile"><RiAccountCircleLine aria-label="Login" /></Nav>
         </Link>
         <Link to="/register">
-          <Nav className="nav-item nav-link reg-mobile"><BsPersonPlus /></Nav>
+          <Nav className="nav-item nav-link reg-mobile"><BsPersonPlus aria-label="Register"/></Nav>
         </Link>
       </>
     );
@@ -49,7 +49,7 @@ const Header = (props) => {
     <Navbar className="navbar">
       <Link to="/">
       <Navbar.Brand href="#home">
-        <h5 className="nav_Title">Shopping Hut</h5>
+        <h1 className="nav_Title" style={{fontSize: "1em"}}>Shopping Hut</h1>
       </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
