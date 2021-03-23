@@ -2,7 +2,6 @@ const express = require("express");
 require ('dotenv').config();
 const path = require('path');
 const morgan = require('morgan');
-//const nodemailer = require('nodemailer');
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const app = express();
@@ -25,16 +24,16 @@ mongoose.connect(process.env.ATLAS_URI, {
       console.log(err);
   });
 
-const userRouter = require("./routes/userRoute");
-app.use("/user", userRouter);
-app.use('/contact', require('./routes/contactRouter'));
+const userRouter = express.static(path.join(__dirname, './routes/userRouter'));
+// app.use("/user", userRouter);
+app.use('/contact', express.static(path.join(__dirname, './routes/contactRouter')));
 
 app.use('/user', express.static(path.join(__dirname, '/user')))
 
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')))
+  app.use(express.static(path.join(__dirname, './build')))
 
-  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html')))
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, './build', 'index.html')))
 }else {
   app.get('/', (req, res) => {
     res.send('Server is running')
