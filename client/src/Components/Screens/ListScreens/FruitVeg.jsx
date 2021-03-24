@@ -97,15 +97,6 @@ const FruitVegScreen = (props) => {
               placeholder="Please enter the amount you want..."
               required
             />
-            <input
-              type="text"
-              name="user"
-              value={fruitveg.user}
-              onChange={onChange}
-              className="form-control product_input"
-              placeholder="Who has added this product..."
-              required
-            />
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
@@ -168,15 +159,6 @@ const FruitVegScreen = (props) => {
               onChange={onChange}
               className="form-control product_input"
               placeholder="Please enter the amount you want..."
-              required
-            />
-            <input
-              type="text"
-              name="user"
-              value={fruitveg.user}
-              onChange={onChange}
-              className="form-control product_input"
-              placeholder="Who has added this product..."
               required
             />
             <button

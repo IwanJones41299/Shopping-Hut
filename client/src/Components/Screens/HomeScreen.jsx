@@ -142,7 +142,7 @@ const HomeScreen = () => {
                   Create your shoppin list
                 </Card.Title>
                 <Card.Text style={{ color: "#EFC9AF", fontSize: "1.2em" }}>
-                  Creating your weekly shopping list <br /> at ease.
+                  Creating your weekly shopping list <br /> at ease
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -157,11 +157,10 @@ const HomeScreen = () => {
                   className="mb-4"
                   style={{ color: "#EFC9AF", fontSize: "2em" }}
                 >
-                  Print your list
+                  List Access
                 </Card.Title>
                 <Card.Text style={{ color: "#EFC9AF", fontSize: "1.2em" }}>
-                  Print your list out in a pdf to have at <br /> quick access on
-                  your phone
+                  Access your list on the go <br /> where ever you are
                 </Card.Text>
               </Card.Body>
             </Card>

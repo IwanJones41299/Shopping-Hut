@@ -93,15 +93,6 @@ const DriedGoodsScreen = (props) => {
               placeholder="Please enter the amount you want..."
               required
             />
-            <input
-              type="text"
-              name="user"
-              value={driedfood.user}
-              onChange={onChange}
-              className="form-control product_input"
-              placeholder="Who has added this product..."
-              required
-            />
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
@@ -158,15 +149,6 @@ const DriedGoodsScreen = (props) => {
               onChange={onChange}
               className="form-control product_input"
               placeholder="Please enter the amount you want..."
-              required
-            />
-            <input
-              type="text"
-              name="user"
-              value={driedfood.user}
-              onChange={onChange}
-              className="form-control product_input"
-              placeholder="Who has added this product..."
               required
             />
             <button
