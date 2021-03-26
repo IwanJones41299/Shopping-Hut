@@ -1,12 +1,12 @@
 const express = require("express");
 require ('dotenv').config();
+const path = require('path');
 const morgan = require('morgan');
-const nodemailer = require('nodemailer');
+//const nodemailer = require('nodemailer');
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = 5000;
-const port = 5050;
+const port = 5000;
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(express.json());
@@ -27,5 +27,16 @@ mongoose.connect(process.env.ATLAS_URI, {
 
 const userRouter = require("./routes/userRoute");
 app.use("/user", userRouter);
-
 app.use('/contact', require('./routes/contactRouter'));
+
+app.use('/user', express.static(path.join(__dirname, '/user')))
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')))
+
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html')))
+}else {
+  app.get('/', (req, res) => {
+    res.send('Server is running')
+  })
+}

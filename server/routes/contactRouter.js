@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport(transport);
 contactRouter.post('/', (req,res, next) => {
     const mail = {
         From: process.env.acc_EMAIL,
-        to: 'iwanjones41299@gmail.com',
+        to: 'shoppinghut2021@gmail.com',
         subject: req.body.subject,
         text: `
         From:

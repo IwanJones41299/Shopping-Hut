@@ -14,7 +14,7 @@ const cookieExtractor = req => {
 // middleware here is used for authorization
 passport.use(new JwtStrategy({
     jwtFromRequest : cookieExtractor,
-    secretOrKey : "ShoppingHut"
+    secretOrKey : "C55284D857062C50C092630AD4924E5DE000BE9BDBE63E5EA650B11621531417"
 },(payload, done) => {
     User.findById({_id : payload.sub}, (err,user) => {
         if(err)
