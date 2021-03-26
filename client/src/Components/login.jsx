@@ -43,6 +43,7 @@ const Login = (props) => {
                 </span>
               </div>
               <input
+                title="usernameInput"
                 type="text"
                 className="form-control"
                 name="username"
@@ -58,6 +59,7 @@ const Login = (props) => {
                 </span>
               </div>
               <input
+                title="passwordInput"
                 type="password"
                 className="form-control"
                 name="password"
@@ -66,7 +68,7 @@ const Login = (props) => {
               ></input>
             </div>
 
-            <button className="btn btn-block login2" type="submit">
+            <button className="btn btn-block login2" type="submit" title="LoginFormSubmit">
               Login
             </button>
             <div className="card-body">
@@ -86,7 +88,7 @@ const Login = (props) => {
               </div>
             </div>
           </form>
-          {message ? <Message message={message} /> : null}
+          {message ? <Message message={message} title="errorMessage"/> : null}
         </div>
       </div>
     </div>
