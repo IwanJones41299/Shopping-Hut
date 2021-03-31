@@ -76,6 +76,7 @@ const ContactScreen = () => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="name"
                     name="name"
                     type="text"
                     value={inputs.name}
@@ -93,6 +94,7 @@ const ContactScreen = () => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="email"
                     name="email"
                     type="email"
                     value={inputs.email}
@@ -110,6 +112,7 @@ const ContactScreen = () => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="subject"
                     name="subject"
                     type="text"
                     value={inputs.subject}
@@ -126,6 +129,7 @@ const ContactScreen = () => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="message"
                     as="textarea"
                     rows={3}
                     name="message"
@@ -176,6 +180,7 @@ const ContactScreen = () => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="name"
                         name="name"
                         type="text"
                         value={inputs.name}
@@ -193,6 +198,7 @@ const ContactScreen = () => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="email"
                         name="email"
                         type="email"
                         value={inputs.email}
@@ -210,6 +216,7 @@ const ContactScreen = () => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="subject"
                         name="subject"
                         type="text"
                         value={inputs.subject}
@@ -226,6 +233,7 @@ const ContactScreen = () => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="message"
                         as="textarea"
                         rows={3}
                         name="message"

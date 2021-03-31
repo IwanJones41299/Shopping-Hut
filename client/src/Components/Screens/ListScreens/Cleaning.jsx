@@ -76,6 +76,7 @@ const CleaningScreen = (props) => {
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={toiletriescleaning.name}
@@ -85,6 +86,7 @@ const CleaningScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={toiletriescleaning.quantity}
@@ -139,6 +141,7 @@ const CleaningScreen = (props) => {
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={toiletriescleaning.name}
@@ -148,6 +151,7 @@ const CleaningScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={toiletriescleaning.quantity}

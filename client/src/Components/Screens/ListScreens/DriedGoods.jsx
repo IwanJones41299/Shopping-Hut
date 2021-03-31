@@ -76,6 +76,7 @@ const DriedGoodsScreen = (props) => {
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={driedfood.name}
@@ -85,6 +86,7 @@ const DriedGoodsScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={driedfood.quantity}
@@ -134,6 +136,7 @@ const DriedGoodsScreen = (props) => {
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={driedfood.name}
@@ -143,6 +146,7 @@ const DriedGoodsScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={driedfood.quantity}

@@ -65,6 +65,7 @@ const LoginScreen = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="username"
                     name="username"
                     type="text"
                     onChange={onChange}
@@ -80,6 +81,7 @@ const LoginScreen = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="password"
                     name="password"
                     type="password"
                     onChange={onChange}
@@ -139,6 +141,7 @@ const LoginScreen = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="username"
                         name="username"
                         type="text"
                         onChange={onChange}
@@ -154,6 +157,7 @@ const LoginScreen = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="password"
                         name="password"
                         type="password"
                         onChange={onChange}

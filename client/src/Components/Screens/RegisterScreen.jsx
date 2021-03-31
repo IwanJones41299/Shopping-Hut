@@ -11,7 +11,7 @@ import {
   Card,
   Row,
   Col,
-  Alert
+  Alert,
 } from "react-bootstrap";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -59,11 +59,11 @@ const Register = (props) => {
     e.preventDefault();
 
     if (user.password !== confirmedPasword) {
-      setError("Passwords do not match!")
+      setError("Passwords do not match!");
     } else {
       AuthService.register(user).then((data) => {
         const { message } = data;
-        setSuccess("Registration sucessful")
+        setSuccess("Registration sucessful");
         resetForm();
         if (!message.msgError) {
           timerID = setTimeout(() => {
@@ -87,8 +87,8 @@ const Register = (props) => {
               <h3 className="signin">Sign Up</h3>
             </Card.Body>
             <Form onSubmit={onSubmit}>
-            {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
-            {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
+              {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
+              {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
               <Form.Group>
                 <InputGroup>
                   <InputGroup.Prepend>
@@ -97,6 +97,7 @@ const Register = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="name"
                     name="name"
                     type="text"
                     value={user.name}
@@ -113,6 +114,7 @@ const Register = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="username"
                     name="username"
                     type="text"
                     value={user.username}
@@ -129,6 +131,7 @@ const Register = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="email"
                     name="email"
                     type="email"
                     value={user.email}
@@ -145,6 +148,7 @@ const Register = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <select
+                    aria-label="account type select option"
                     className="custom-select"
                     id="accountRole"
                     name="accountRole"
@@ -152,10 +156,14 @@ const Register = (props) => {
                     onChange={onChange}
                   >
                     <option selected>Choose an account type</option>
-                    <option value="Personal" id="Personal">
+                    <option
+                      value="Personal"
+                      id="Personal"
+                      aria-label="personal"
+                    >
                       Personal
                     </option>
-                    <option value="Family" id="Family">
+                    <option value="Family" id="Family" aria-label="family">
                       Family
                     </option>
                   </select>
@@ -169,6 +177,7 @@ const Register = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="password"
                     name="password"
                     type="password"
                     value={user.password}
@@ -186,6 +195,7 @@ const Register = (props) => {
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
+                    aria-label="confirm password"
                     name="confirmPassword"
                     type="password"
                     value={confirmedPasword}
@@ -237,8 +247,12 @@ const Register = (props) => {
               </Col>
               <Col className="col-3 browser_login">
                 <Form onSubmit={onSubmit}>
-                {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
-                {success !== "" ? <Alert variant="sucess">{success}</Alert> : ""}
+                  {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
+                  {success !== "" ? (
+                    <Alert variant="sucess">{success}</Alert>
+                  ) : (
+                    ""
+                  )}
                   <Form.Group>
                     <InputGroup>
                       <InputGroup.Prepend>
@@ -247,6 +261,7 @@ const Register = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="name"
                         name="name"
                         type="text"
                         value={user.name}
@@ -263,6 +278,7 @@ const Register = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="username"
                         name="username"
                         type="text"
                         value={user.username}
@@ -279,6 +295,7 @@ const Register = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="email"
                         name="email"
                         type="email"
                         value={user.email}
@@ -295,6 +312,7 @@ const Register = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <select
+                        aria-label="account type select option"
                         className="custom-select"
                         id="accountRole"
                         name="accountRole"
@@ -302,10 +320,14 @@ const Register = (props) => {
                         onChange={onChange}
                       >
                         <option selected>Choose an account type</option>
-                        <option value="Personal" id="Personal">
+                        <option
+                          value="Personal"
+                          id="Personal"
+                          aria-label="personal"
+                        >
                           Personal
                         </option>
-                        <option value="Family" id="Family">
+                        <option value="Family" id="Family" aria-label="family">
                           Family
                         </option>
                       </select>
@@ -319,6 +341,7 @@ const Register = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="password"
                         name="password"
                         type="password"
                         value={user.password}
@@ -336,11 +359,13 @@ const Register = (props) => {
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
+                        aria-label="confirm password"
                         name="confirmPassword"
                         type="password"
                         value={confirmedPasword}
                         onChange={(e) => setConfirmedPassword(e.target.value)}
                         placeholder="confirm password..."
+                        minLength={8}
                       />
                     </InputGroup>
                   </Form.Group>

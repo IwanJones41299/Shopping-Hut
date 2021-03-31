@@ -76,6 +76,7 @@ const FrozenFoodScreen = (props) => {
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={frozenfood.name}
@@ -85,6 +86,7 @@ const FrozenFoodScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={frozenfood.quantity}
@@ -134,6 +136,7 @@ const FrozenFoodScreen = (props) => {
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={frozenfood.name}
@@ -143,6 +146,7 @@ const FrozenFoodScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={frozenfood.quantity}

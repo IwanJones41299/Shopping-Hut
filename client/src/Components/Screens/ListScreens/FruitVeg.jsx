@@ -80,6 +80,7 @@ const FruitVegScreen = (props) => {
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={fruitveg.name}
@@ -89,6 +90,7 @@ const FruitVegScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={fruitveg.quantity}
@@ -144,6 +146,7 @@ const FruitVegScreen = (props) => {
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input
+              aria-label="product name"
               type="text"
               name="name"
               value={fruitveg.name}
@@ -153,6 +156,7 @@ const FruitVegScreen = (props) => {
               required
             />
             <input
+              aria-label="product quantity"
               type="number"
               name="quantity"
               value={fruitveg.quantity}
