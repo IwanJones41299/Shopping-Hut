@@ -27,13 +27,13 @@ const MobileBottomNav = () => {
     <Navbar className="navbar mobile_bottomNav">
       <Nav className="m-auto">
         <Link to="/user_contact">
-          <Nav className="nav-item nav-link pr-6 mr-5"><MdContacts style={{fontSize: "2em"}} /></Nav>
+          <Nav className="nav-item nav-link pr-6 mr-5"><MdContacts style={{fontSize: "2em"}} aria-label="Contact Form"/></Nav>
         </Link>
         <Link to="/menu">
-          <Nav className="nav-item nav-link pr-6 mr-5"><AiOutlineMenu style={{fontSize: "2em"}} /></Nav>
+          <Nav className="nav-item nav-link pr-6 mr-5"><AiOutlineMenu style={{fontSize: "2em"}} aria-label="List Menu"/></Nav>
         </Link>
         <Link to="/">
-          <Nav className="nav-item nav-link" onClick={onClickLogoutHandler}><GiExitDoor style={{fontSize: "2em"}} /></Nav>
+          <Nav className="nav-item nav-link" onClick={onClickLogoutHandler}><GiExitDoor style={{fontSize: "2em"}} aria-label="Logout"/></Nav>
         </Link>
       </Nav>
     </Navbar>

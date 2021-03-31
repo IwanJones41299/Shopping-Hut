@@ -11,12 +11,12 @@ const BrowserBottomNav = () => {
       <Nav className="m-auto">
         <Link to="/user_contact">
           <Nav className="nav-item nav-link pr-6 mr-5 userNav">
-            <MdContacts style={{ fontSize: "1.5em" }} />
+            <MdContacts style={{ fontSize: "1.5em" }} aria-label="Contact Form"/>
           </Nav>
         </Link>
         <Link to="/menu">
           <Nav className="nav-item nav-link pr-6 mr-5 userNav">
-            <AiOutlineMenu style={{ fontSize: "1.5em" }} />
+            <AiOutlineMenu style={{ fontSize: "1.5em" }} aria-label="List Menu"/>
           </Nav>
         </Link>
       </Nav>
