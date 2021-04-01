@@ -61,7 +61,7 @@ const LoginScreen = (props) => {
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>
-                      <BsFillPersonFill />
+                      <BsFillPersonFill role="img" aria-label="Persons shoulder and head, profile image"/>
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
@@ -77,7 +77,7 @@ const LoginScreen = (props) => {
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>
-                      <RiLockPasswordLine />
+                      <RiLockPasswordLine role="img" aria-label="Lock Icon"/>
                     </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
@@ -137,7 +137,7 @@ const LoginScreen = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <BsFillPersonFill />
+                          <BsFillPersonFill role="img" aria-label="Persons shoulder and head, profile image" />
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -153,7 +153,7 @@ const LoginScreen = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <RiLockPasswordLine />
+                          <RiLockPasswordLine role="img" aria-label="Lock Icon" />
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control

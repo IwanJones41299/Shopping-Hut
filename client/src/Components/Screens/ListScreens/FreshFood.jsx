@@ -72,7 +72,7 @@ const FreshFoodScreem = (props) => {
           <meta charSet="utf-8" />
           <title>Fresh Food</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Fresh Food</h3>
+        <h2 className="text-center mt-5 category_title">Fresh Food</h2>
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
@@ -132,7 +132,7 @@ const FreshFoodScreem = (props) => {
           <meta charSet="utf-8" />
           <title>Fresh Food</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Fresh Food</h3>
+        <h2 className="text-center mt-5 category_title">Fresh Food</h2>
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input

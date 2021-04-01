@@ -257,7 +257,7 @@ const Register = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <RiAccountCircleLine />
+                          <RiAccountCircleLine role="img" aria-label="Human shoulder to head picture, with circle outline"/>
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -274,7 +274,7 @@ const Register = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <BsFillPersonFill />
+                          <BsFillPersonFill role="img" aria-label="Human shoulder to head picture"/>
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -291,7 +291,7 @@ const Register = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <HiOutlineMail />
+                          <HiOutlineMail role="img" aria-label="Mail icon"/>
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -308,7 +308,7 @@ const Register = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <MdSupervisorAccount />
+                          <MdSupervisorAccount role="img" aria-label="Human shoulder to head picture"/>
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <select
@@ -337,7 +337,7 @@ const Register = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <RiLockPasswordLine />
+                          <RiLockPasswordLine role="img" aria-label="Lock Icon"/>
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -355,7 +355,7 @@ const Register = (props) => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <RiLockPasswordLine />
+                          <RiLockPasswordLine role="img" aria-label="Lock Icon"/>
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
 import { AuthContext } from "../../Context/AuthContext";
 import { Nav, Navbar } from "react-bootstrap";
@@ -12,12 +12,14 @@ const Header = (props) => {
     const { isAuthenticated, setIsAuthenticated, setUser } = useContext(
     AuthContext
   );
+  const history = useHistory();
 
   const onClickLogoutHandler = () => {
     AuthService.logout().then((data) => {
       if (data.sucess) {
         setUser(data.user);
         setIsAuthenticated(false);
+        history.push("/")
       }
     });
   };
@@ -38,9 +40,7 @@ const Header = (props) => {
   const authenticatedNavbar = () => {
     return (
       <>
-        <Link to="/">
         <Nav className="nav-item nav-link" onClick={onClickLogoutHandler}>Logout</Nav>
-        </Link>
       </>
     );
   };
@@ -48,7 +48,7 @@ const Header = (props) => {
   return (
     <Navbar className="navbar">
       <Link to="/">
-      <Navbar.Brand href="#home">
+      <Navbar.Brand>
         <h1 className="nav_Title" style={{fontSize: "1em"}}>Shopping Hut</h1>
       </Navbar.Brand>
       </Link>

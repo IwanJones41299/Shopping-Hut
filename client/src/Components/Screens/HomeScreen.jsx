@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import { Helmet } from "react-helmet";
 import { Card, CardDeck } from "react-bootstrap";
 import { BiListPlus } from "react-icons/bi";
-import { RiPrinterCloudLine } from "react-icons/ri";
+import { FaWalking } from "react-icons/fa";
 import { GoCloudDownload } from "react-icons/go";
 import MobFooter from "../MobileCore/Footer";
 import BsrFooter from "../BrowserCore/Footer";
@@ -60,16 +60,16 @@ const HomeScreen = () => {
               Discover the amazing feature this app has to offer
             </h3>
             <div className="features_card">
-              <BiListPlus style={{ fontSize: "3.5em" }} />
+              <BiListPlus style={{ fontSize: "3.5em" }} role="img" aria-label="Cloud download icon" />
               <h4 className="feature_title">Create your shopping list</h4>
               <p>Creating your weekly shopping list at ease.</p>
             </div>
             <div className="features_card">
-              <RiPrinterCloudLine style={{ fontSize: "3.5em" }} />
-              <h5 className="feature_title">Print your list</h5>
+              <FaWalking style={{ fontSize: "3.5em" }} role="img" aria-label="Person walking" />
+              <h5 className="feature_title">List Access</h5>
               <p>
-                Print your list out in a pdf to have at quick access on your
-                phone
+                Access your list on the go
+                where ever you are
               </p>
             </div>
           </div>
@@ -95,7 +95,7 @@ const HomeScreen = () => {
                 At the click of a button
               </p>
               <Link to="/login">
-                <Button variant="outline-primary" className="btn btn-login">
+                <Button variant="outline-primary" className="btn btn-login" Redirect>
                   Login
                 </Button>
               </Link>
@@ -114,7 +114,8 @@ const HomeScreen = () => {
               <GoCloudDownload
                 className="mt-4 mb-4"
                 style={{ fontSize: "4.5em", margin: "auto", color: "#EFC9AF" }}
-                alt="Download Icon"
+                role="img"
+                aria-label="Cloud download icon"
               />
               <Card.Body>
                 <Card.Title
@@ -132,7 +133,8 @@ const HomeScreen = () => {
               <BiListPlus
                 className="mt-4 mb-4"
                 style={{ fontSize: "4.5em", margin: "auto", color: "#EFC9AF" }}
-                alt="List Icon"
+                role="img" 
+                aria-label="List Icon"
               />
               <Card.Body>
                 <Card.Title
@@ -147,10 +149,11 @@ const HomeScreen = () => {
               </Card.Body>
             </Card>
             <Card>
-              <RiPrinterCloudLine
+              <FaWalking
                 className="mt-4 mb-4"
                 style={{ fontSize: "3.5em", margin: "auto", color: "#EFC9AF" }}
-                alt="Printer Icon"
+                role="img" 
+                aria-label="Person Walking"
               />
               <Card.Body>
                 <Card.Title

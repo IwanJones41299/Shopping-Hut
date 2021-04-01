@@ -72,7 +72,7 @@ const PetsScreen = (props) => {
           <meta charSet="utf-8" />
           <title>Pets</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Pets</h3>
+        <h2 className="text-center mt-5 category_title">Pets</h2>
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input

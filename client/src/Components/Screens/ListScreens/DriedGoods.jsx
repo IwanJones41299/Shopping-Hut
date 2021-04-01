@@ -72,7 +72,7 @@ const DriedGoodsScreen = (props) => {
           <meta charSet="utf-8" />
           <title>Dried Goods</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Dried Goods</h3>
+        <h2 className="text-center mt-5 category_title">Dried Goods</h2>
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
