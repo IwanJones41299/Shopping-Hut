@@ -115,7 +115,7 @@ const FruitVegScreen = (props) => {
           {message ? <Message message={message} /> : null}
         </Container>
         <Container fluid className="table_container">
-          <Table responsive="md" className="table-borderless">
+          <Table responsive="md" className="table-borderless" role="presentation">
             <thead>
               <tr>
                 <th style={{ color: "#EFC9AF" }}>Completed</th>
@@ -179,7 +179,7 @@ const FruitVegScreen = (props) => {
           className="table_container"
           style={{ maxWidth: "30%" }}
         >
-          <Table responsive="md" className="table-borderless">
+          <Table responsive="md" className="table-borderless" role="presentation">
             <thead>
               <tr>
                 <th style={{ color: "#EFC9AF" }}>Completed</th>

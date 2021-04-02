@@ -25,13 +25,13 @@ const Header = (props) => {
     return (
       <>
         <Link to="/login">
-          <Nav className="nav-item nav-link login">Login</Nav>
+          <Nav className="nav-item nav-link login" aria-label="Login button">Login</Nav>
         </Link>
         <Link to="/register">
-          <Nav className="nav-item nav-link reg">Register</Nav>
+          <Nav className="nav-item nav-link reg" aria-label="Register button">Register</Nav>
         </Link>
         <Link to="/contact">
-          <Nav className="nav-item nav-link reg">Contact</Nav>
+          <Nav className="nav-item nav-link reg" aria-label="Contact button">Contact</Nav>
         </Link>
       </>
     );
@@ -46,7 +46,7 @@ const Header = (props) => {
   };
 
   return (
-    <Navbar className="navbar" expand="md">
+    <Navbar className="navbar" expand="md" role="region">
       <Link to="/">
       <Navbar.Brand>
         <h1 className="nav_Title" style={{fontSize : "1.2em"}}>Shopping Hut</h1>
