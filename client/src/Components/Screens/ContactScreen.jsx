@@ -9,6 +9,7 @@ import {
   Card,
   Row,
   Col,
+  Alert
 } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import { RiAccountCircleLine } from "react-icons/ri";
@@ -25,6 +26,7 @@ const ContactScreen = () => {
     subject: "",
     message: "",
   });
+  const [success, setSuccess] = useState("");
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -33,17 +35,16 @@ const ContactScreen = () => {
 
   const sendForm = (e) => {
     e.preventDefault();
-
     const { name, email, subject, message } = inputs;
 
-    axios.post("/contact", {
-      name,
-      email,
-      subject,
-      text: message,
-    });
-
-    resetForm();
+      axios.post("/contact", {
+        name,
+        email,
+        subject,
+        text: message,
+      });
+      resetForm();
+      setSuccess("Message Sent");
   };
 
   const resetForm = () => {
@@ -68,6 +69,7 @@ const ContactScreen = () => {
               <h3 className="signin">Write to us</h3>
             </Card.Body>
             <Form onSubmit={sendForm}>
+              {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
               <Form.Group>
                 <InputGroup>
                   <InputGroup.Prepend>
@@ -172,6 +174,7 @@ const ContactScreen = () => {
               </Col>
               <Col className="col-3 browser_login">
                 <Form onSubmit={sendForm}>
+                {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
                   <Form.Group>
                     <InputGroup>
                       <InputGroup.Prepend>

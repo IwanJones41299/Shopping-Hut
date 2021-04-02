@@ -12,6 +12,7 @@ import {
   Card,
   Row,
   Col,
+  Alert
 } from "react-bootstrap";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -25,6 +26,7 @@ const ContactScreen = () => {
     subject: "",
     message: "",
   });
+  const [success, setSuccess] = useState("");
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -42,8 +44,8 @@ const ContactScreen = () => {
       subject,
       text: message,
     });
-
     resetForm();
+    setSuccess("Message sent")
   };
 
   const resetForm = () => {
@@ -68,6 +70,7 @@ const ContactScreen = () => {
               <h3 className="signin">Write to us</h3>
             </Card.Body>
             <Form onSubmit={sendForm}>
+              {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
               <Form.Group>
                 <InputGroup>
                   <InputGroup.Prepend>
@@ -171,6 +174,7 @@ const ContactScreen = () => {
               </Col>
               <Col className="col-3 browser_login">
                 <Form onSubmit={sendForm}>
+                {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
                   <Form.Group>
                     <InputGroup>
                       <InputGroup.Prepend>
