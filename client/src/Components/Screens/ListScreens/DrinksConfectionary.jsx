@@ -138,11 +138,11 @@ const DrinksConfectionaryScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Drinks & Confectionary</title>
+          <title>Drinks & Confectionary List Page</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">
+        <h2 className="text-center mt-5 category_title">
           Drinks & Confectionary
-        </h3>
+        </h2>
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input

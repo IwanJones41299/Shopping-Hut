@@ -70,7 +70,7 @@ const DriedGoodsScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Dried Goods</title>
+          <title>Dried Goods List Page</title>
         </Helmet>
         <h2 className="text-center mt-5 category_title">Dried Goods List Page</h2>
         <Container fluid>
@@ -131,9 +131,9 @@ const DriedGoodsScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Dried Goods</title>
+          <title>Dried Goods List Page</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Dried Goods</h3>
+        <h2 className="text-center mt-5 category_title">Dried Goods</h2>
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input

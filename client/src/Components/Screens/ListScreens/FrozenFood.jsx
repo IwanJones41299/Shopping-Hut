@@ -131,7 +131,7 @@ const FrozenFoodScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Frozen Food</title>
+          <title>Frozen Food List Page</title>
         </Helmet>
         <h2 className="text-center mt-5 category_title">Frozen Food</h2>
         <Container fluid style={{ maxWidth: "30%" }}>

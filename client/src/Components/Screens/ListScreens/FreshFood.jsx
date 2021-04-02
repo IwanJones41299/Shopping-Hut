@@ -131,7 +131,7 @@ const FreshFoodScreem = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Fresh Food</title>
+          <title>Fresh Food List Page</title>
         </Helmet>
         <h2 className="text-center mt-5 category_title">Fresh Food</h2>
         <Container fluid style={{ maxWidth: "30%" }}>

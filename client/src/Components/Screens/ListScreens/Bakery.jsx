@@ -131,9 +131,9 @@ const BakeryScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Bakery</title>
+          <title>Bakery List Page</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Bakery</h3>
+        <h2 className="text-center mt-5 category_title">Bakery</h2>
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input

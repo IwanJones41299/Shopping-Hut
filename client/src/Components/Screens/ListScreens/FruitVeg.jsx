@@ -76,7 +76,7 @@ const FruitVegScreen = (props) => {
           <meta charSet="utf-8" />
           <title>Fruit & Veg List Page</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Fruit & Veg</h3>
+        <h2 className="text-center mt-5 category_title">Fruit & Veg</h2>
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
@@ -141,7 +141,7 @@ const FruitVegScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Fruit & Veg</title>
+          <title>Fruit & Veg List Page</title>
         </Helmet>
         <h2 className="text-center mt-5 category_title">Fruit & Veg</h2>
         <Container fluid style={{ maxWidth: "30%" }}>

@@ -131,9 +131,9 @@ const PetsScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Pets</title>
+          <title>Pets List Page</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Pets</h3>
+        <h2 className="text-center mt-5 category_title">Pets</h2>
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input

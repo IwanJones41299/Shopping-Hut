@@ -75,7 +75,8 @@ const ContactScreen = () => {
                 <InputGroup>
                   <InputGroup.Prepend>
                     <InputGroup.Text>
-                      <RiAccountCircleLine role="img" aria-label="Human shoulder to head picture, with circle outline" />                    </InputGroup.Text>
+                      <RiAccountCircleLine role="img" aria-label="Human shoulder to head picture, with circle outline" />
+                    </InputGroup.Text>
                   </InputGroup.Prepend>
                   <Form.Control
                     aria-label="name"
@@ -175,11 +176,11 @@ const ContactScreen = () => {
               <Col className="col-3 browser_login">
                 <Form onSubmit={sendForm}>
                 {success !== "" ? <Alert variant="success">{success}</Alert> : ""}
-                  <Form.Group>
+                <Form.Group>
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <RiAccountCircleLine />
+                          <RiAccountCircleLine role="img" aria-label="Human shoulder to head picture, with circle outline" />
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -197,7 +198,7 @@ const ContactScreen = () => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <BsFillPersonFill />
+                          <BsFillPersonFill role="img" aria-label="Human shoulder to head picture" />
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -215,7 +216,7 @@ const ContactScreen = () => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <MdSubject />
+                          <MdSubject role="img" aria-label="List image" />
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control
@@ -232,7 +233,7 @@ const ContactScreen = () => {
                     <InputGroup>
                       <InputGroup.Prepend>
                         <InputGroup.Text>
-                          <HiOutlineMail />
+                          <HiOutlineMail role="img" aria-label="Mail Icon" />
                         </InputGroup.Text>
                       </InputGroup.Prepend>
                       <Form.Control

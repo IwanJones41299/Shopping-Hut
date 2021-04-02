@@ -136,9 +136,9 @@ const CleaningScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Cleaning</title>
+          <title>Cleaning List Page</title>
         </Helmet>
-        <h3 className="text-center mt-5 category_title">Cleaning</h3>
+        <h2 className="text-center mt-5 category_title">Cleaning</h2>
         <Container fluid style={{ maxWidth: "30%" }}>
           <form onSubmit={onSubmit}>
             <input

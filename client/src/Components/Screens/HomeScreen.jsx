@@ -84,7 +84,7 @@ const HomeScreen = () => {
         <section>
           <div className="position-relative overflow-hidden text-center bg-custom">
             <div className="col-md-5 p-lg-5 mx-auto my-5">
-              <h2 className="display-4 font-weight-normal">Shopping Hut</h2>
+              <h2 className="display-4 font-weight-normal">Shopping Hut!</h2>
               <p className="lead font-weight-normal">
                 Create your shopping list
                 <br />

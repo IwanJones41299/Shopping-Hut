@@ -54,7 +54,7 @@ const MenuScreen = (props) => {
         </Helmet>
         <BrowserBottomNav />
         <Container fluid className="m-auto" style={{ maxWidth: "30%" }}>
-          <h1 className="category_title">List Menu</h1>
+          <h2 className="category_title">List Menu</h2>
           <ListGroup>
             <Link to="/fruit_veg" role="link" aria-label="fruit and veg list">
               <ListGroup.Item action>Fruit & Veg</ListGroup.Item>
