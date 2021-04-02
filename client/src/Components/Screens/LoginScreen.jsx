@@ -92,9 +92,6 @@ const LoginScreen = (props) => {
               <Button variant="primary" type="submit" className="login-btn">
                 Login
               </Button>
-              <Link to="/reset">
-                <Card.Text className="reg-link">Reset Password...</Card.Text>
-              </Link>
               <Link to="/register">
                 <Card.Text className="reg-link">Create an account...</Card.Text>
               </Link>
@@ -172,11 +169,6 @@ const LoginScreen = (props) => {
                   >
                     Login
                   </Button>
-                  <Link to="/reset">
-                    <Card.Text className="reg-link mt-4">
-                      Reset Password...
-                    </Card.Text>
-                  </Link>
                 </Form>
               </Col>
               <Col className="Col-3" />
