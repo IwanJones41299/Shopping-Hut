@@ -27,15 +27,11 @@ const HomeScreen = () => {
               <br />
               At the click of a button
             </p>
-            <Link to="/login">
-              <Button variant="outline-primary" className="btn btn-login">
+            <Link to="/login" variant="outline-primary" className="btn btn-login">
                 Login
-              </Button>
             </Link>
-            <Link to="/register">
-              <Button variant="outline-primary" className="btn btn-reg">
+            <Link to="/register" variant="outline-primary" className="btn btn-reg">
                 Register
-              </Button>
             </Link>
           </div>
         </section>
