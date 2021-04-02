@@ -17,7 +17,7 @@ const HomeScreen = () => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Home</title>
+          <title>Shopping Hut Home Page</title>
         </Helmet>
         <section className="home_top">
           <div className="container-fluid content">
@@ -79,26 +79,22 @@ const HomeScreen = () => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Home</title>
+          <title>Shopping Hut Home Page</title>
         </Helmet>
         <section>
           <div className="position-relative overflow-hidden text-center bg-custom">
             <div className="col-md-5 p-lg-5 mx-auto my-5">
-              <h1 className="display-4 font-weight-normal">Shopping Hut</h1>
+              <h2 className="display-4 font-weight-normal">Shopping Hut</h2>
               <p className="lead font-weight-normal">
                 Create your shopping list
                 <br />
                 At the click of a button
               </p>
-              <Link to="/login">
-                <Button variant="outline-primary" className="btn btn-login" Redirect>
+              <Link to="/login" variant="outline-primary" className="btn btn-login">
                   Login
-                </Button>
               </Link>
-              <Link to="/register">
-                <Button variant="outline-primary" className="btn btn-reg">
+              <Link to="/register" variant="outline-primary" className="btn btn-reg">
                   Register
-                </Button>
               </Link>
             </div>
           </div>

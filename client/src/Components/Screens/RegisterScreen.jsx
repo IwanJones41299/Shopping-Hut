@@ -79,7 +79,7 @@ const Register = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Registration</title>
+          <title>User Registration Page</title>
         </Helmet>
         <main style={{ minHeight: "74vh" }}>
           <Container fluid className="signupForm">
@@ -224,7 +224,7 @@ const Register = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Registration</title>
+          <title>User Registration Page</title>
         </Helmet>
         <main style={{ minHeight: "83vh" }}>
           <Container fluid className="browser_signupForm">

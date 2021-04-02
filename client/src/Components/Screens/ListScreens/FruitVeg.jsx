@@ -74,7 +74,7 @@ const FruitVegScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Fruit & Veg</title>
+          <title>Fruit & Veg List Page</title>
         </Helmet>
         <h3 className="text-center mt-5 category_title">Fruit & Veg</h3>
         <Container fluid>
@@ -109,6 +109,7 @@ const FruitVegScreen = (props) => {
           <button
             onClick={clearList}
             className="btn btn-primary btn-block login-btn mt-2"
+            aria-label="submit button"
           >
             Clear
           </button>
@@ -168,6 +169,7 @@ const FruitVegScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>

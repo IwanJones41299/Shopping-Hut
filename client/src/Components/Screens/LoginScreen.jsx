@@ -48,7 +48,7 @@ const LoginScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Login</title>
+          <title>User Login Page</title>
         </Helmet>
         <main>
           <Container fluid className="loginForm">
@@ -109,7 +109,7 @@ const LoginScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Login</title>
+          <title>User Login Page</title>
         </Helmet>
         <main className="browserMain">
           <Container fluid className="browser_loginForm">

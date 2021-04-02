@@ -70,7 +70,7 @@ const PetsScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Pets</title>
+          <title>Pets List Page</title>
         </Helmet>
         <h2 className="text-center mt-5 category_title">Pets</h2>
         <Container fluid>
@@ -98,6 +98,7 @@ const PetsScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>
@@ -158,6 +159,7 @@ const PetsScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>

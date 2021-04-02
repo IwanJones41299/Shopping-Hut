@@ -62,7 +62,7 @@ const ContactScreen = () => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Contact</title>
+          <title>Shopping Hut Contact Page</title>
         </Helmet>
         <main style={{ minHeight: "75vh" }}>
           <Container fluid className="signupForm">
@@ -156,7 +156,7 @@ const ContactScreen = () => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Contact</title>
+          <title>Shopping Hut Contact Page</title>
         </Helmet>
         <main style={{ minHeight: "76vh" }}>
           <Container fluid className="browser_signupForm">

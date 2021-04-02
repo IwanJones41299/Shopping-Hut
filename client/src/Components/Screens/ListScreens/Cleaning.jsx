@@ -70,7 +70,7 @@ const CleaningScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Cleaning</title>
+          <title>Cleaning List Page</title>
         </Helmet>
         <h2 className="text-center mt-5 category_title">Cleaning</h2>
         <Container fluid>
@@ -98,6 +98,7 @@ const CleaningScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>
@@ -163,6 +164,7 @@ const CleaningScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>

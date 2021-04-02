@@ -70,7 +70,7 @@ const DrinksConfectionaryScreen = (props) => {
       <>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Drinks & Confectionary</title>
+          <title>Drinks & Confectionary List Page</title>
         </Helmet>
         <h2 className="text-center mt-5 category_title">
           Drinks & Confectionary
@@ -100,6 +100,7 @@ const DrinksConfectionaryScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>
@@ -167,6 +168,7 @@ const DrinksConfectionaryScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>

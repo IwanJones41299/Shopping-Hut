@@ -72,7 +72,7 @@ const DriedGoodsScreen = (props) => {
           <meta charSet="utf-8" />
           <title>Dried Goods</title>
         </Helmet>
-        <h2 className="text-center mt-5 category_title">Dried Goods</h2>
+        <h2 className="text-center mt-5 category_title">Dried Goods List Page</h2>
         <Container fluid>
           <form onSubmit={onSubmit}>
             <input
@@ -98,6 +98,7 @@ const DriedGoodsScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>
@@ -158,6 +159,7 @@ const DriedGoodsScreen = (props) => {
             <button
               className="btn btn-primary btn-block login-btn"
               type="submit"
+              aria-label="submit button"
             >
               Add
             </button>
