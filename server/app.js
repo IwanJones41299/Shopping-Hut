@@ -1,11 +1,16 @@
 const express = require("express");
 require ('dotenv').config();
+const path = require('path');
+var http = require('http');
+var enforce = require('express-sslify');
 const morgan = require('morgan');
 const nodemailer = require('nodemailer');
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = PORT || 5000;
+const port = process.env.PORT || 5000;
+
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(express.json());
