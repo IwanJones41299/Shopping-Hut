@@ -29,9 +29,11 @@ const Header = (props) => {
       <>
         <Link to="/login">
           <Nav className="nav-item nav-link login-mobile"><RiAccountCircleLine aria-label="Login" /></Nav>
+          <span class="sr-only">Login Button</span>
         </Link>
         <Link to="/register">
           <Nav className="nav-item nav-link reg-mobile"><BsPersonPlus aria-label="Register"/></Nav>
+          <span class="sr-only">Register Button</span>
         </Link>
       </>
     );

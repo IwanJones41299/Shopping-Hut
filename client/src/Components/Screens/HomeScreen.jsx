@@ -7,12 +7,12 @@ import { FaWalking } from "react-icons/fa";
 import { GoCloudDownload } from "react-icons/go";
 import MobFooter from "../MobileCore/Footer";
 import BsrFooter from "../BrowserCore/Footer";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { Link } from "react-router-dom";
 import "./screens.scss";
 
 const HomeScreen = () => {
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <Helmet>

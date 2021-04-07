@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { Helmet } from "react-helmet";
 import MobileBottomNav from "../MobileCore/BottomNav";
 import BrowserBottomNav from "../BrowserCore/BottomNav";
 import { Container, ListGroup } from "react-bootstrap";
 const MenuScreen = (props) => {
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <Helmet>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import MobileBottomNav from "../MobileCore/BottomNav";
 import BrowserBottomNav from "../BrowserCore/BottomNav";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { Helmet } from "react-helmet";
 import {
   Form,
@@ -57,7 +57,7 @@ const ContactScreen = () => {
     });
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <Helmet>
@@ -67,7 +67,7 @@ const ContactScreen = () => {
         <main style={{ minHeight: "75vh" }}>
           <Container fluid className="signupForm">
             <Card.Body>
-              <h3 className="signin">Write to us</h3>
+              <h2 className="signin">Write to us</h2>
             </Card.Body>
             <Form onSubmit={sendForm}>
               {success !== "" ? <Alert variant="success">{success}</Alert> : ""}

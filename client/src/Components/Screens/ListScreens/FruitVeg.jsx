@@ -4,7 +4,7 @@ import ListService from "../../../Services/ListService";
 import { AuthContext } from "../../../Context/AuthContext";
 import Message from "../../Message";
 import { Container, Table } from "react-bootstrap";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { Helmet } from "react-helmet";
 import MobileBottomNav from "../../MobileCore/BottomNav";
 import BrowserBottomNav from "../../BrowserCore/BottomNav";
@@ -57,10 +57,6 @@ const FruitVegScreen = (props) => {
     });
   };
 
-  const clearList = () => {
-
-  };
-
   const resetForm = () => {
     setfruitveg({
       name: "",
@@ -69,7 +65,7 @@ const FruitVegScreen = (props) => {
     });
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <Helmet>
@@ -106,13 +102,6 @@ const FruitVegScreen = (props) => {
               Add
             </button>
           </form>
-          <button
-            onClick={clearList}
-            className="btn btn-primary btn-block login-btn mt-2"
-            aria-label="submit button"
-          >
-            Clear
-          </button>
           {message ? <Message message={message} /> : null}
         </Container>
         <Container fluid className="table_container">

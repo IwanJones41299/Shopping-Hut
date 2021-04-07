@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../Context/AuthContext";
 import {
@@ -43,7 +43,7 @@ const LoginScreen = (props) => {
     });
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <Helmet>
@@ -53,7 +53,7 @@ const LoginScreen = (props) => {
         <main>
           <Container fluid className="loginForm">
             <Card.Body>
-              <h3 className="signin">Log In</h3>
+              <h2 className="signin">Log In</h2>
             </Card.Body>
             <Form onSubmit={onSubmit}>
               {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}

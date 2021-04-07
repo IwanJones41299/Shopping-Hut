@@ -4,7 +4,7 @@ import ListService from "../../../Services/ListService";
 import { AuthContext } from "../../../Context/AuthContext";
 import Message from "../../Message";
 import { Container, Table } from "react-bootstrap";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { Helmet } from "react-helmet";
 import MobileBottomNav from "../../MobileCore/BottomNav";
 import BrowserBottomNav from "../../BrowserCore/BottomNav";
@@ -65,7 +65,7 @@ const DrinksConfectionaryScreen = (props) => {
     });
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <Helmet>

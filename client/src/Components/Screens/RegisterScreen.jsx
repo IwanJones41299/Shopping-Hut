@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
 import { Helmet } from "react-helmet";
 import {
   Form,
@@ -74,7 +74,7 @@ const Register = (props) => {
     }
   };
 
-  if (isMobile) {
+  if (isMobile || isTablet) {
     return (
       <>
         <Helmet>
@@ -84,7 +84,7 @@ const Register = (props) => {
         <main style={{ minHeight: "74vh" }}>
           <Container fluid className="signupForm">
             <Card.Body>
-              <h3 className="signin">Sign Up</h3>
+              <h2 className="signin">Sign Up</h2>
             </Card.Body>
             <Form onSubmit={onSubmit}>
               {error !== "" ? <Alert variant="danger">{error}</Alert> : ""}
